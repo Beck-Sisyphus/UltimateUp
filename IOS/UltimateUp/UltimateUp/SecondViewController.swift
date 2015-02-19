@@ -13,6 +13,11 @@ class SecondViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        // Load Facebook Login In button
+        var loginView = FBLoginView()
+        loginView.center = self.view.center
+        self.view.addSubview(loginView)
     }
 
     override func didReceiveMemoryWarning() {

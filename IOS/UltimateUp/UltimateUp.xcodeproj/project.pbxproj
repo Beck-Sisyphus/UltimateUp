@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C420FA91A95DAC3005C1D9B /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C420FA81A95DAC3005C1D9B /* SignInViewController.swift */; };
 		8C57C5AF1A8D710700F8F1B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C57C5AE1A8D710700F8F1B1 /* AppDelegate.swift */; };
 		8C57C5B11A8D710700F8F1B1 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C57C5B01A8D710700F8F1B1 /* FirstViewController.swift */; };
 		8C57C5B31A8D710700F8F1B1 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C57C5B21A8D710700F8F1B1 /* SecondViewController.swift */; };
@@ -14,7 +15,6 @@
 		8C57C5B81A8D710700F8F1B1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C57C5B71A8D710700F8F1B1 /* Images.xcassets */; };
 		8C57C5BB1A8D710700F8F1B1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C57C5B91A8D710700F8F1B1 /* LaunchScreen.xib */; };
 		8C57C5C71A8D710700F8F1B1 /* UltimateUpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C57C5C61A8D710700F8F1B1 /* UltimateUpTests.swift */; };
-		8C57C5D21A8D71DD00F8F1B1 /* empty.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C57C5D11A8D71DD00F8F1B1 /* empty.m */; };
 		D2F46CEAEE206D58E813B746 /* libPods-UltimateUp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 065D21F2ECCE7C4DA09DAEC0 /* libPods-UltimateUp.a */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +31,7 @@
 /* Begin PBXFileReference section */
 		065D21F2ECCE7C4DA09DAEC0 /* libPods-UltimateUp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UltimateUp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FC5881E8255571EF3AD17DA /* Pods-UltimateUp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UltimateUp.release.xcconfig"; path = "Pods/Target Support Files/Pods-UltimateUp/Pods-UltimateUp.release.xcconfig"; sourceTree = "<group>"; };
+		8C420FA81A95DAC3005C1D9B /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		8C57C5A91A8D710700F8F1B1 /* UltimateUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UltimateUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C57C5AD1A8D710700F8F1B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C57C5AE1A8D710700F8F1B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -43,7 +44,6 @@
 		8C57C5C51A8D710700F8F1B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C57C5C61A8D710700F8F1B1 /* UltimateUpTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltimateUpTests.swift; sourceTree = "<group>"; };
 		8C57C5D01A8D71DD00F8F1B1 /* UltimateUp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UltimateUp-Bridging-Header.h"; sourceTree = "<group>"; };
-		8C57C5D11A8D71DD00F8F1B1 /* empty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = empty.m; sourceTree = "<group>"; };
 		8CCBF9D8B919ED63B1231D37 /* Pods-UltimateUp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UltimateUp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UltimateUp/Pods-UltimateUp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -109,12 +109,11 @@
 				8C57C5AE1A8D710700F8F1B1 /* AppDelegate.swift */,
 				8C57C5B01A8D710700F8F1B1 /* FirstViewController.swift */,
 				8C57C5B21A8D710700F8F1B1 /* SecondViewController.swift */,
+				8C420FA81A95DAC3005C1D9B /* SignInViewController.swift */,
 				8C57C5B41A8D710700F8F1B1 /* Main.storyboard */,
-				8C57C5B71A8D710700F8F1B1 /* Images.xcassets */,
-				8C57C5B91A8D710700F8F1B1 /* LaunchScreen.xib */,
 				8C57C5AC1A8D710700F8F1B1 /* Supporting Files */,
-				8C57C5D11A8D71DD00F8F1B1 /* empty.m */,
 				8C57C5D01A8D71DD00F8F1B1 /* UltimateUp-Bridging-Header.h */,
+				8C57C5AD1A8D710700F8F1B1 /* Info.plist */,
 			);
 			path = UltimateUp;
 			sourceTree = "<group>";
@@ -122,7 +121,8 @@
 		8C57C5AC1A8D710700F8F1B1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				8C57C5AD1A8D710700F8F1B1 /* Info.plist */,
+				8C57C5B91A8D710700F8F1B1 /* LaunchScreen.xib */,
+				8C57C5B71A8D710700F8F1B1 /* Images.xcassets */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -195,9 +195,11 @@
 				TargetAttributes = {
 					8C57C5A81A8D710700F8F1B1 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = HGBCCHEUQQ;
 					};
 					8C57C5BF1A8D710700F8F1B1 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = HGBCCHEUQQ;
 						TestTargetID = 8C57C5A81A8D710700F8F1B1;
 					};
 				};
@@ -279,8 +281,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C420FA91A95DAC3005C1D9B /* SignInViewController.swift in Sources */,
 				8C57C5B31A8D710700F8F1B1 /* SecondViewController.swift in Sources */,
-				8C57C5D21A8D71DD00F8F1B1 /* empty.m in Sources */,
 				8C57C5AF1A8D710700F8F1B1 /* AppDelegate.swift in Sources */,
 				8C57C5B11A8D710700F8F1B1 /* FirstViewController.swift in Sources */,
 			);
@@ -434,6 +436,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -445,6 +449,7 @@
 				INFOPLIST_FILE = UltimateUpTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UltimateUp.app/UltimateUp";
 			};
 			name = Debug;
@@ -453,6 +458,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -460,6 +467,7 @@
 				INFOPLIST_FILE = UltimateUpTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UltimateUp.app/UltimateUp";
 			};
 			name = Release;
