@@ -49,6 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         sourceApplication sourceApplication: NSString, annotation annotation:NSObject)
         -> Bool {
     // attempt to extract a token from the url
+    // Call FBAppCall's handleOpenURL:sourceApplication to handle Facebook app responses
         return FBAppCall.handleOpenURL(url, sourceApplication: sourceApplication)
     }
 
