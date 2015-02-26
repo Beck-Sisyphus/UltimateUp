@@ -14,20 +14,21 @@ class SecondViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         // Load Facebook Login In button
-        var loginView = FBLoginView()
-        loginView.center = self.view.center
-        self.view.addSubview(loginView)
-    }
-
-    @IBAction func SignInButton(sender: UIButton) {
-        sender.setTitle("test", forState: UIControlState.Normal)
+        //var loginView = FBLoginView()
+        //loginView.center = self.view.center
+        //self.view.addSubview(loginView)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    override func viewWillAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        navigationController?.navigationBarHidden = true
+        navigationController?.hidesBarsOnSwipe = true
+        
+    }
 
 }
 

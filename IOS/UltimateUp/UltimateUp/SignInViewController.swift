@@ -25,5 +25,11 @@ class SignInViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        navigationController?.navigationBarHidden = false;
+        navigationController?.hidesBarsOnSwipe = true
+    }
+    
     
 }
