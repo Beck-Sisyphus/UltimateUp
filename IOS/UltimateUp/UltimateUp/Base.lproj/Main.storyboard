@@ -30,16 +30,48 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="b6e-MA-cRV">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="KQZ-1w-vlD" secondAttribute="centerX" id="6BV-lF-sBN"/>
+                            <constraint firstItem="b6e-MA-cRV" firstAttribute="bottom" secondItem="4ug-Mw-9AY" secondAttribute="top" id="Igk-Pm-XKg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="b6e-MA-cRV" secondAttribute="trailing" constant="-16" id="IvC-yp-1YP"/>
+                            <constraint firstItem="b6e-MA-cRV" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" id="XZv-cJ-nQg"/>
                             <constraint firstItem="A5M-7J-77L" firstAttribute="top" secondItem="KQZ-1w-vlD" secondAttribute="bottom" constant="8" symbolic="YES" id="cfb-er-3JN"/>
+                            <constraint firstItem="b6e-MA-cRV" firstAttribute="centerX" secondItem="KQZ-1w-vlD" secondAttribute="centerX" id="dhI-7D-AyS"/>
                             <constraint firstItem="A5M-7J-77L" firstAttribute="centerX" secondItem="KQZ-1w-vlD" secondAttribute="centerX" id="e1l-AV-tCB"/>
                             <constraint firstAttribute="centerY" secondItem="KQZ-1w-vlD" secondAttribute="centerY" id="exm-UA-ej4"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="b6e-MA-cRV"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="Igk-Pm-XKg"/>
+                                <exclude reference="IvC-yp-1YP"/>
+                                <exclude reference="XZv-cJ-nQg"/>
+                                <exclude reference="dhI-7D-AyS"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="b6e-MA-cRV"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="Igk-Pm-XKg"/>
+                                <include reference="IvC-yp-1YP"/>
+                                <include reference="XZv-cJ-nQg"/>
+                                <include reference="dhI-7D-AyS"/>
+                            </mask>
+                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
+                    <connections>
+                        <outlet property="mapView" destination="b6e-MA-cRV" id="x2X-gd-jXR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
@@ -70,57 +102,43 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j7H-1d-5wi">
-                                <rect key="frame" x="16" y="481" width="568" height="30"/>
-                                <state key="normal" title="Login In with Facebook">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9mf-8M-VJ2">
+                                <rect key="frame" x="16" y="20" width="62" height="64"/>
+                                <state key="normal" backgroundImage="SignInButton">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="zDk-h6-0ns" kind="show" id="UUz-pb-CKH"/>
+                                    <action selector="SignInButton:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="Ifm-8s-0aO"/>
                                 </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9mf-8M-VJ2">
-                                <rect key="frame" x="16" y="20" width="74" height="30"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="j7H-1d-5wi" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="461" id="4np-h8-q0o"/>
-                            <constraint firstItem="j7H-1d-5wi" firstAttribute="trailing" secondItem="QS5-Rx-YEW" secondAttribute="trailingMargin" id="CyC-Nq-mNZ"/>
                             <constraint firstItem="NDk-cv-Gan" firstAttribute="top" secondItem="zEq-FU-wV5" secondAttribute="bottom" constant="8" symbolic="YES" id="Day-4N-Vmt"/>
+                            <constraint firstItem="9mf-8M-VJ2" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" id="It6-so-0Xj"/>
                             <constraint firstItem="NDk-cv-Gan" firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="JgO-Fn-dHn"/>
-                            <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="j7H-1d-5wi" secondAttribute="bottom" constant="40" id="MQg-ge-f7A"/>
-                            <constraint firstItem="j7H-1d-5wi" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" id="gEW-1P-KNX"/>
+                            <constraint firstItem="9mf-8M-VJ2" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="47" id="fNu-8U-kIf"/>
                             <constraint firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="qqM-NS-xev"/>
                             <constraint firstAttribute="centerY" secondItem="zEq-FU-wV5" secondAttribute="centerY" id="qzY-Ky-pLD"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="It6-so-0Xj"/>
+                                <exclude reference="fNu-8U-kIf"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="It6-so-0Xj"/>
+                                <include reference="fNu-8U-kIf"/>
+                            </mask>
+                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Second" image="second" id="cPa-gy-q4n"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="750" y="360"/>
-        </scene>
-        <!--Sign In View Controller-->
-        <scene sceneID="xqM-J1-ZfY">
-            <objects>
-                <viewController id="zDk-h6-0ns" customClass="SignInViewController" customModule="UltimateUp" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="lJa-z2-fAv"/>
-                        <viewControllerLayoutGuide type="bottom" id="Sht-yk-njc"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="qqe-8O-zZo">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Goh-hP-Kox" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1558" y="463"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -143,6 +161,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="SignInButton" width="62" height="64"/>
         <image name="first" width="30" height="30"/>
         <image name="second" width="30" height="30"/>
     </resources>
