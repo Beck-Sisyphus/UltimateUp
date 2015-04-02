@@ -2,12 +2,10 @@
 # platform :ios, '6.0'
 
 target 'UltimateUp' do
-source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '8.0'
-
-pod 'AFNetworking', '~> 2.0'
-pod 'Facebook-iOS-SDK'
-
+# pod 'AFNetworking', '~> 2.0'
+# pod 'Alamofire', '~> 1.1'
+# pod 'Facebook-iOS-SDK'
+# pod 'Starscream', :git => "https://github.com/daltoniam/starscream.git", :tag => "0.9.1"
 end
 
 target 'UltimateUpTests' do

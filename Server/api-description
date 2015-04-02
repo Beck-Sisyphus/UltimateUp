@@ -1,0 +1,51 @@
+Files Description
+(updated March 18, 2015)
+
+URL: 54.86.169.6/ios/the-file-name
+
+welcome.php
+Function: testing server
+Input: NULL
+Print string: "Welcome to ios directory!"
+
+comm_test.php
+Function: testing transmitting and receiving data in JSON format
+Input: 
+	method = GET/POST
+	variable: name = any-JSON-string
+	type = string
+Print JSON string: 
+	{"Good!":"Invalid Input:the-input-string"} if input is not a valid JSON string
+	{"Congratulations!":"Welcome to the server!","message":the-input-string} if input is a valid JSON string
+
+header.php
+Function: headers for data transmission
+
+dbapi.php
+Function: database handler for APIs
+
+signup_api.php
+Function: add new user to database
+Input: 
+	method = GET/POST
+	variable: json = {"username"=your-username,"userpassword"=your-password,"emailaddress"=your-emailaddress,"firstname"=your-firstname,"lastname"=your-lastname,"userphoto"=your-userphoto-link,"userlevel"=your-userlevel,"locationx"=your-location-x,"locationy"=your-location-y}
+	type:     JSON = {string,string,string,string,string,string,string,double,double}
+Print JSON string:
+	{"type":"message","value":"new user has been successfully added to database"} if user information has been successfully added to database
+	{"type":"error","value":"unable to connect to database: detailed-database-error"} if there is database problems
+	{"type":"error","value":"existing email address"} if email address is already listed in the database so that this sign-up is not be fulfilled
+	{"type":"error","value":"required values are not filled: user_name, user_password and email_address"} if one of the following information is missing: username, userpassword, emailaddress
+	{"type":"error","value":"mysql-insert-sql database-error"} if input type does not match or database problem so that this adding does not seccess
+More:
+	The username, userpassword and emailaddress are required. Other parameters can be missing from the input JSON string.
+
+login_api.php
+Function: check whether a user exists in the database by email address and user password. If the user exists, return the corresponding unique CustomerID
+Input: 
+	method = GET/POST
+	variable: json = {"emailaddress"=your-email-address,"userpassword"=your-password}
+	type:     JSON = {string,string}
+Print JSON string:
+	{"type":"message","value":(int)the-corresponding-customer-id}
+	{"type":"message","value":"No existing user"}
+	{"type":"error","value":"unable to connect to database: detailed-database-error"} if there is database problems

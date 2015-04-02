@@ -1,0 +1,21 @@
+March 24 2015 notes
+
+Sign in / up: (facebook_id, fb_access_token) -> Bool, user_id:
+
+	login -> Facebook -> fb_access_token -> Server
+	facebook_id -> Server
+
+nearby active players when not sign in: (longitude, lattitude, user_id?) -> (Array<(longtitude, lattitude)>):
+	Problem: We are using MySQL database, however, the geospatial datas we have are hard to index.
+	Sollution I: A table 
+	Sollution II: RethinkDB or DynamoDB
+
+POST create game: (longitude, lattitude, user_id) -> Bool, game_id:
+
+POST additional game info: (game_id, field, value) -> Bool:
+
+PUSH peer join: websocket -> (longitude, lattitude, player_id, skill)
+
+PUSH peer location change: websocket -> (longitude, lattitude, player_id)
+
+GET avetar: (player_id) -> player_avetar.PNG
