@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8C94DC431AC2715000A6205D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C94DC421AC2715000A6205D /* AppDelegate.swift */; };
-		8C94DC451AC2715000A6205D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C94DC441AC2715000A6205D /* ViewController.swift */; };
+		8C94DC451AC2715000A6205D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C94DC441AC2715000A6205D /* MainViewController.swift */; };
 		8C94DC481AC2715000A6205D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C94DC461AC2715000A6205D /* Main.storyboard */; };
 		8C94DC4A1AC2715000A6205D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C94DC491AC2715000A6205D /* Images.xcassets */; };
 		8C94DC4D1AC2715000A6205D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C94DC4B1AC2715000A6205D /* LaunchScreen.xib */; };
@@ -36,7 +36,7 @@
 		8C94DC3D1AC2715000A6205D /* UltimateUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UltimateUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C94DC411AC2715000A6205D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C94DC421AC2715000A6205D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8C94DC441AC2715000A6205D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8C94DC441AC2715000A6205D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		8C94DC471AC2715000A6205D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8C94DC491AC2715000A6205D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8C94DC4C1AC2715000A6205D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -98,12 +98,9 @@
 		8C94DC3F1AC2715000A6205D /* UltimateUp */ = {
 			isa = PBXGroup;
 			children = (
-				8C94DC421AC2715000A6205D /* AppDelegate.swift */,
-				8C94DC441AC2715000A6205D /* ViewController.swift */,
+				8C94DC441AC2715000A6205D /* MainViewController.swift */,
 				8C94DC461AC2715000A6205D /* Main.storyboard */,
 				8CBAA34B1AC5FECF00F0DDCD /* SignInViewController.swift */,
-				8C94DC491AC2715000A6205D /* Images.xcassets */,
-				8C94DC4B1AC2715000A6205D /* LaunchScreen.xib */,
 				8C94DC621AC2718100A6205D /* framework */,
 				8C94DC401AC2715000A6205D /* Supporting Files */,
 			);
@@ -113,6 +110,9 @@
 		8C94DC401AC2715000A6205D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8C94DC491AC2715000A6205D /* Images.xcassets */,
+				8C94DC4B1AC2715000A6205D /* LaunchScreen.xib */,
+				8C94DC421AC2715000A6205D /* AppDelegate.swift */,
 				8C94DC671AC2732E00A6205D /* UltimateUp-Bridging-Header.h */,
 				8C94DC411AC2715000A6205D /* Info.plist */,
 			);
@@ -249,7 +249,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C94DC451AC2715000A6205D /* ViewController.swift in Sources */,
+				8C94DC451AC2715000A6205D /* MainViewController.swift in Sources */,
 				8C94DC431AC2715000A6205D /* AppDelegate.swift in Sources */,
 				8CBAA34C1AC5FECF00F0DDCD /* SignInViewController.swift in Sources */,
 			);

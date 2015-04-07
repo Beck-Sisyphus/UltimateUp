@@ -9,7 +9,26 @@
 import UIKit
 
 class SignInViewController: UIViewController, FBSDKLoginButtonDelegate {
-
+    
+    // The view navigation part of the code
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // pull out a UIViewController from a NavigationController
+        var destination = segue.destinationViewController as? UIViewController
+        if let navControler = destination as? UINavigationController {
+            destination = navControler.visibleViewController
+        }
+        
+        if let vc = destination as? MainViewController{
+            if let identifier = segue.identifier {
+                switch identifier {
+                    case "AfterSignIn": vc.isSignIn = true
+                    default: break
+                }
+            }
+        }
+    }
+    
+    // The Facebook login part of the code
     @IBOutlet var fbProfilePicture: FBSDKProfilePictureView!
     
     @IBOutlet var loginButton: FBSDKLoginButton!
@@ -24,11 +43,6 @@ class SignInViewController: UIViewController, FBSDKLoginButtonDelegate {
         }   else {
             // stay here
         }
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -54,6 +68,7 @@ class SignInViewController: UIViewController, FBSDKLoginButtonDelegate {
             if result.grantedPermissions.containsObject("public_profile")
             {
                 // Do work
+                performSegueWithIdentifier("AfterSignIn", sender: self)
             }
         }
     }
@@ -77,8 +92,6 @@ class SignInViewController: UIViewController, FBSDKLoginButtonDelegate {
                 println("fetched user: \(result)")
                 let userName : NSString = result.valueForKey("name") as NSString
                 println("User Name is: \(userName)")
-//                let userEmail : NSString = result.valueForKey("email") as NSString
-//                println("User Email is: \(userEmail)")
             }
         })
     }
