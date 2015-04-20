@@ -29,8 +29,7 @@ class SignInViewController: UIViewController, FBSDKLoginButtonDelegate {
     }
     
     // The Facebook login part of the code
-    @IBOutlet var fbProfilePicture: FBSDKProfilePictureView!
-    
+
     @IBOutlet var loginButton: FBSDKLoginButton!
     
     override func viewDidLoad() {
@@ -65,9 +64,9 @@ class SignInViewController: UIViewController, FBSDKLoginButtonDelegate {
         else {
             // If you ask for multiple permissions at once, you
             // should check if specific permissions missing
-            if result.grantedPermissions.containsObject("public_profile")
+            if result.grantedPermissions.contains("public_profile")
             {
-                // Do work
+                // Turn into another view
                 performSegueWithIdentifier("AfterSignIn", sender: self)
             }
         }
@@ -90,8 +89,10 @@ class SignInViewController: UIViewController, FBSDKLoginButtonDelegate {
             else
             {
                 println("fetched user: \(result)")
-                let userName : NSString = result.valueForKey("name") as NSString
+                let userName : NSString = result.valueForKey("name") as! NSString
                 println("User Name is: \(userName)")
+                // Call for next view, the Main View
+                self.performSegueWithIdentifier("AfterSignIn", sender: self)
             }
         })
     }

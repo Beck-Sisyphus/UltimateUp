@@ -14,9 +14,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        // Start Google Map service
+        GMSServices.provideAPIKey("AIzaSyDgUCexS1g0ofnsRKaKfmJkzzsBXio99Bw")
         // Override point for customization after application launch.
         var loginButton = FBSDKLoginButton()
         var fbPicture = FBSDKProfilePictureView()
+
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }
 
