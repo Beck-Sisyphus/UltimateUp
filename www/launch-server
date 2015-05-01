@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+if [ -f bs-config.js ]; then
+  bs_config=bs-config.js
+else
+  bs_config=/usr/local/bin/bs-config.js
+fi
+
+browser-sync start --config $bs_config&
+sleep 1
+amok http://localhost:3000/ --watch js/*.js&
+
+wait $(jobs -p)
