@@ -1,8 +1,15 @@
+// read site-wide configurations
+var conf = require('./config');
+
+// general dependencies
 var app = require('http').createServer(handler)
 var io = require('socket.io')(app);
 var fs = require('fs');
+var r = require('rethinkdbdash')(conf.rethink);
 
-app.listen(80);
+// app components
+
+var login = require('./login')(conf, r);
 
 function handler (req, res) {
   fs.readFile(__dirname + '/index.html',
@@ -17,9 +24,13 @@ function handler (req, res) {
   });
 }
 
-io.on('connection', function (socket) {
-  socket.emit('news', { hello: 'world' });
-  socket.on('my other event', function (data) {
-    console.log(data);
-  });
+
+// default socket: /mobi
+io.of('mobi').on('connection', function (socket) {
+  // attaching components
+  login.handle(socket);
+  
 });
+
+// starting server
+app.listen(80);
