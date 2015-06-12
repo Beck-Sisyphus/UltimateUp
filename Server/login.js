@@ -12,6 +12,12 @@ module.exports = function(config, rethink) {
 
 handle = function(soc) {
   // facebook login
+
+  soc.on("hello world", function(req, cb) {
+     console.info('req', req);
+     console.info('cb', cb);
+     cb(req);
+  });
   soc.on("login", function(req, cb) {
     var fb_token = req.fb_token || null;
     var user_id = req.user_id || null;

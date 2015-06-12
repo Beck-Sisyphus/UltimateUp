@@ -11,6 +11,8 @@ var r = require('rethinkdbdash')(conf.rethink);
 
 var login = require('./login')(conf, r);
 
+console.info(login);
+
 function handler (req, res) {
   fs.readFile(__dirname + '/index.html',
   function (err, data) {
@@ -28,7 +30,8 @@ function handler (req, res) {
 // default socket: /mobi
 io.of('mobi').on('connection', function (socket) {
   // attaching components
-  login.handle(socket);
+  socket.emit("callback", {this: "that"});
+  login(socket);
   
 });
 

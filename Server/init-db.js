@@ -4,55 +4,44 @@ console.info("Creating database...");
 
 r.dbCreate("ut").run()
  .then(function(s) {
-  if (!s.created) {
+  if (!s.dbs_created) {
     console.info("Error:", s);
     throw s;
   }
-  var test = r.db("ut");
+  var db = r.db("ut");
 
   console.info("Creating tables...");
 
-  return test.tableCreate("users")
-     .tableCreate("fb-tokens")
-     .tableCreate("geo")
-     .tableCreate("friends")
-     .tableCreate("games", {primaryKey: "game-id"});
- }).run()
- .then(function(s) {
-  if (!s.tables_created) {
-    conosle.info("Error:",s);
+  return Promise.all([
+    db.tableCreate("users").run(),
+    db.tableCreate("fb_tokens").run(),
+    db.tableCreate("geo").run(),
+    db.tableCreate("friends").run(),
+    db.tableCreate("games", {primaryKey: "game-id"}).run()
+  ]);
+ }).then(function(res) {
+  if (res.some(function(s) {return !s.tables_created;})) {
+    console.info("Error:",res);
     throw s;
   }
 
-  console.info("Creating indices for table users...");
-
-  return r.table("users").indexCreate("facebook_id").indexCreate("city").indexCreate("school");
- }).run()
- .then(function(s) {
-  if (!s.tables_created) {
-    conosle.info("Error:",s);
-    throw s;
-  }
-
-  console.info("Creating indices for table geo...");
-
-  return r.table("geo").indexCreate("loc", {geo:true});
- }).run()
- .then(function(s) {
-  if (!s.tables_created) {
-    conosle.info("Error:",s);
-    throw s;
-  }
-
-  console.info("Creating indices for table games...");
-
-  return r.table("games").indexCreate("loc", {geo:true});
- }).run()
- .then(function(s) {
-  if (!s.tables_created) {
-    conosle.info("Error:",s);
+  console.info("Creating indices...");
+  
+  var db = r.db("ut");
+  return Promise.all([
+    db.table("users").indexCreate("facebook_id").run(),
+    db.table("users").indexCreate("city").run(),
+    db.table("users").indexCreate("school").run(),
+    db.table("geo").indexCreate("loc", {geo:true}).run(),
+    db.table("games").indexCreate("loc", {geo:true}).run()
+  ]);
+ }).then(function(res) {
+  if (res.some(function(s) {return !s.created;})) {
+    console.info("Error:",s);
     throw s;
   }
 
   console.info("Done.");
+  // exit
+  r.getPoolMaster().drain();
 });
