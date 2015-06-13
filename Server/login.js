@@ -69,9 +69,9 @@ handle = function(soc) {
       }
       else if (user_id !== null && res[0].id != user_id) {
         // error
-        throw "id mismatch: " +  res.id + " " + user_id;
+        throw "id mismatch: " +  res[0].id + " " + user_id;
       } else {
-        return res.id;
+        return res[0].id;
       }
     }).then(function (id) {
       var expiration =  // token expiration time
