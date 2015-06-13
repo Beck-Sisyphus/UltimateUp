@@ -31,7 +31,7 @@ handle = function(soc) {
     }
 
     fetch({
-      url: "http://graph.facebook.com/oauth/access_token",
+      url: "https://graph.facebook.com/oauth/access_token",
       qs: {
         grant_type: "fb_exchange_token",
         client_id: conf.facebook.app_id,
