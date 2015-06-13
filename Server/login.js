@@ -48,7 +48,7 @@ handle = function(soc) {
       console.info(res);
       fb_res = res;
       // check if user exists
-      return users.getAll(fb_id, {index: 'facebook_id'}).toArray();
+      return users.getAll(fb_id, {index: 'facebook_id'}).run();
     }).then(function(res) {
       if (res.length === 0) {
         // no such user - create one
