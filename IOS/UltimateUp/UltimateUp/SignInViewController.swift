@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FBSDKLoginKit
 
 class SignInViewController: UIViewController, FBSDKLoginButtonDelegate {
     
@@ -52,7 +53,7 @@ class SignInViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     // default function for LoginButton delegate
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
-        println("User Logged In")
+        print("User Logged In", appendNewline: false)
         
         if ((error) != nil)
         {
@@ -73,24 +74,32 @@ class SignInViewController: UIViewController, FBSDKLoginButtonDelegate {
     }
     
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
-        println("User Logged Out")
+        print("User Logged Out", appendNewline: false)
     }
     
     func returnUserData()
     {
+        // Both Access Token and FB ID needed for sign in process
+        println("Access Token is:")
+        println(FBSDKAccessToken.currentAccessToken().tokenString)
+        println("User ID is:")
+        println(FBSDKAccessToken.currentAccessToken().userID)
+        println("It's experiation date is:")
+        println(FBSDKAccessToken.currentAccessToken().expirationDate)
+        
         let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: nil)
         graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
             
             if ((error) != nil)
             {
                 // Process error
-                println("Error: \(error)")
+                print("Error: \(error)", appendNewline: false)
             }
             else
             {
-                println("fetched user: \(result)")
+                print("fetched user: \(result)", appendNewline: false)
                 let userName : NSString = result.valueForKey("name") as! NSString
-                println("User Name is: \(userName)")
+                print("User Name is: \(userName)", appendNewline: false)
                 // Call for next view, the Main View
                 self.performSegueWithIdentifier("AfterSignIn", sender: self)
             }

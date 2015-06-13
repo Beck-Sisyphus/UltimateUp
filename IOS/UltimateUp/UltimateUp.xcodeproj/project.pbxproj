@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		41E184BA6063B6259B256D04 /* Pods_UltimateUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6E8376595E9D5A26FE06EF /* Pods_UltimateUp.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		8C2CB67C1B2A9BFA002425D5 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C2CB6781B2A9AC7002425D5 /* CoreBluetooth.framework */; };
+		8C2CB67D1B2A9BFF002425D5 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C2CB67A1B2A9AD0002425D5 /* Accelerate.framework */; };
+		8C2CB6821B2AA3DA002425D5 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8C2CB6811B2AA3DA002425D5 /* GoogleMaps.bundle */; };
 		8C94DC431AC2715000A6205D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C94DC421AC2715000A6205D /* AppDelegate.swift */; };
 		8C94DC451AC2715000A6205D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C94DC441AC2715000A6205D /* MainViewController.swift */; };
 		8C94DC481AC2715000A6205D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C94DC461AC2715000A6205D /* Main.storyboard */; };
@@ -14,13 +18,6 @@
 		8C94DC4D1AC2715000A6205D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C94DC4B1AC2715000A6205D /* LaunchScreen.xib */; };
 		8C94DC591AC2715000A6205D /* UltimateUpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C94DC581AC2715000A6205D /* UltimateUpTests.swift */; };
 		8CBAA34C1AC5FECF00F0DDCD /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBAA34B1AC5FECF00F0DDCD /* SignInViewController.swift */; };
-		8CBAA3521AC662D200F0DDCD /* FBAudienceNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CBAA3511AC662D200F0DDCD /* FBAudienceNetwork.framework */; };
-		8CBAA3541AC662DC00F0DDCD /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CBAA3531AC662DC00F0DDCD /* FBSDKCoreKit.framework */; };
-		8CBAA3561AC662E500F0DDCD /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CBAA3551AC662E500F0DDCD /* FBSDKLoginKit.framework */; };
-		8CBAA3581AC6633300F0DDCD /* FBSDKMessengerShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CBAA3571AC6633300F0DDCD /* FBSDKMessengerShareKit.framework */; };
-		8CBAA35A1AC6633A00F0DDCD /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CBAA3591AC6633A00F0DDCD /* FBSDKShareKit.framework */; };
-		8CCE92051AE485CA0005C58C /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CCE92041AE485CA0005C58C /* GoogleMaps.framework */; settings = {ATTRIBUTES = (Required, ); }; };
-		8CCE92071AE487360005C58C /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8CCE92061AE487360005C58C /* GoogleMaps.bundle */; };
 		8CCE92091AE489740005C58C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CCE92081AE489740005C58C /* AVFoundation.framework */; };
 		8CCE920B1AE4898C0005C58C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CCE920A1AE4898C0005C58C /* CoreData.framework */; };
 		8CCE920D1AE489950005C58C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CCE920C1AE489950005C58C /* CoreLocation.framework */; };
@@ -33,8 +30,7 @@
 		8CCE921B1AE48F1E0005C58C /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CCE921A1AE48F1E0005C58C /* OpenGLES.framework */; };
 		8CCE921D1AE48F250005C58C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CCE921C1AE48F250005C58C /* QuartzCore.framework */; };
 		8CCE921F1AE48F2C0005C58C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CCE921E1AE48F2C0005C58C /* SystemConfiguration.framework */; };
-		8CE3F15A1B055867003C2083 /* createGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE3F1591B055867003C2083 /* createGameController.swift */; };
-		E82293922369C79B02003427 /* Pods_UltimateUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1720787BAA3BF002FD084505 /* Pods_UltimateUp.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		8CEC85BB1B2B57EE00F72D96 /* createGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEC85BA1B2B57EE00F72D96 /* createGameController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,7 +44,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1720787BAA3BF002FD084505 /* Pods_UltimateUp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UltimateUp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C2CB6781B2A9AC7002425D5 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		8C2CB67A1B2A9AD0002425D5 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		8C2CB6811B2AA3DA002425D5 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = Pods/GoogleMaps/Frameworks/GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
 		8C94DC3D1AC2715000A6205D /* UltimateUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UltimateUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C94DC411AC2715000A6205D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C94DC421AC2715000A6205D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -80,10 +78,13 @@
 		8CCE921A1AE48F1E0005C58C /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		8CCE921C1AE48F250005C58C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		8CCE921E1AE48F2C0005C58C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		8CCEB8821AF5EB6C001C2E23 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = Framework/Bolts.framework; sourceTree = "<group>"; };
-		8CE3F1591B055867003C2083 /* createGameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = createGameController.swift; sourceTree = "<group>"; };
+		8CEC85B31B2B3D9900F72D96 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "Pods/../build/Debug-iphoneos/Pods-UltimateUp/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
+		8CEC85B51B2B407000F72D96 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "Pods/../build/Debug-iphoneos/Pods-UltimateUp/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
+		8CEC85B71B2B409100F72D96 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "Pods/../build/Debug-iphoneos/Pods-UltimateUp/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
+		8CEC85BA1B2B57EE00F72D96 /* createGameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = createGameController.swift; sourceTree = "<group>"; };
 		A640415DCE84D996F465D0F1 /* Pods-UltimateUp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UltimateUp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UltimateUp/Pods-UltimateUp.debug.xcconfig"; sourceTree = "<group>"; };
 		B7453D42A8F5C3B9423F2CD0 /* Pods-UltimateUp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UltimateUp.release.xcconfig"; path = "Pods/Target Support Files/Pods-UltimateUp/Pods-UltimateUp.release.xcconfig"; sourceTree = "<group>"; };
+		FB6E8376595E9D5A26FE06EF /* Pods_UltimateUp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UltimateUp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +92,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C2CB67D1B2A9BFF002425D5 /* Accelerate.framework in Frameworks */,
+				8C2CB67C1B2A9BFA002425D5 /* CoreBluetooth.framework in Frameworks */,
 				8CCE921F1AE48F2C0005C58C /* SystemConfiguration.framework in Frameworks */,
 				8CCE921D1AE48F250005C58C /* QuartzCore.framework in Frameworks */,
 				8CCE921B1AE48F1E0005C58C /* OpenGLES.framework in Frameworks */,
@@ -103,13 +106,7 @@
 				8CCE920D1AE489950005C58C /* CoreLocation.framework in Frameworks */,
 				8CCE920B1AE4898C0005C58C /* CoreData.framework in Frameworks */,
 				8CCE92091AE489740005C58C /* AVFoundation.framework in Frameworks */,
-				8CCE92051AE485CA0005C58C /* GoogleMaps.framework in Frameworks */,
-				8CBAA3541AC662DC00F0DDCD /* FBSDKCoreKit.framework in Frameworks */,
-				8CBAA35A1AC6633A00F0DDCD /* FBSDKShareKit.framework in Frameworks */,
-				8CBAA3581AC6633300F0DDCD /* FBSDKMessengerShareKit.framework in Frameworks */,
-				8CBAA3561AC662E500F0DDCD /* FBSDKLoginKit.framework in Frameworks */,
-				8CBAA3521AC662D200F0DDCD /* FBAudienceNetwork.framework in Frameworks */,
-				E82293922369C79B02003427 /* Pods_UltimateUp.framework in Frameworks */,
+				41E184BA6063B6259B256D04 /* Pods_UltimateUp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,8 +123,12 @@
 		62F85AFE7C9AE37F0A761F2A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8CCEB8821AF5EB6C001C2E23 /* Bolts.framework */,
-				1720787BAA3BF002FD084505 /* Pods_UltimateUp.framework */,
+				8CEC85B71B2B409100F72D96 /* FBSDKLoginKit.framework */,
+				8CEC85B51B2B407000F72D96 /* FBSDKLoginKit.framework */,
+				8CEC85B31B2B3D9900F72D96 /* FBSDKLoginKit.framework */,
+				8C2CB67A1B2A9AD0002425D5 /* Accelerate.framework */,
+				8C2CB6781B2A9AC7002425D5 /* CoreBluetooth.framework */,
+				FB6E8376595E9D5A26FE06EF /* Pods_UltimateUp.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -135,6 +136,7 @@
 		8C94DC341AC2715000A6205D = {
 			isa = PBXGroup;
 			children = (
+				8C2CB6811B2AA3DA002425D5 /* GoogleMaps.bundle */,
 				8C94DC3F1AC2715000A6205D /* UltimateUp */,
 				8C94DC551AC2715000A6205D /* UltimateUpTests */,
 				8C94DC3E1AC2715000A6205D /* Products */,
@@ -156,8 +158,8 @@
 			isa = PBXGroup;
 			children = (
 				8C94DC441AC2715000A6205D /* MainViewController.swift */,
-				8CE3F1591B055867003C2083 /* createGameController.swift */,
 				8CBAA34B1AC5FECF00F0DDCD /* SignInViewController.swift */,
+				8CEC85BA1B2B57EE00F72D96 /* createGameController.swift */,
 				8C94DC461AC2715000A6205D /* Main.storyboard */,
 				8C94DC401AC2715000A6205D /* Supporting Files */,
 				8C94DC621AC2718100A6205D /* framework */,
@@ -256,8 +258,8 @@
 				8C94DC391AC2715000A6205D /* Sources */,
 				8C94DC3A1AC2715000A6205D /* Frameworks */,
 				8C94DC3B1AC2715000A6205D /* Resources */,
-				519E24B518199587DB604B13 /* Embed Pods Frameworks */,
 				C94CD32A847F235F4D9FEBCC /* Copy Pods Resources */,
+				CF21CE41B4724FA46DA43E45 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -292,7 +294,8 @@
 		8C94DC351AC2715000A6205D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0620;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "University of Washington, Seattle";
 				TargetAttributes = {
 					8C94DC3C1AC2715000A6205D = {
@@ -331,7 +334,7 @@
 				8C94DC481AC2715000A6205D /* Main.storyboard in Resources */,
 				8C94DC4D1AC2715000A6205D /* LaunchScreen.xib in Resources */,
 				8C94DC4A1AC2715000A6205D /* Images.xcassets in Resources */,
-				8CCE92071AE487360005C58C /* GoogleMaps.bundle in Resources */,
+				8C2CB6821B2AA3DA002425D5 /* GoogleMaps.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,21 +363,6 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		519E24B518199587DB604B13 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UltimateUp/Pods-UltimateUp-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		C94CD32A847F235F4D9FEBCC /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -390,6 +378,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UltimateUp/Pods-UltimateUp-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		CF21CE41B4724FA46DA43E45 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UltimateUp/Pods-UltimateUp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -400,7 +403,7 @@
 				8C94DC451AC2715000A6205D /* MainViewController.swift in Sources */,
 				8C94DC431AC2715000A6205D /* AppDelegate.swift in Sources */,
 				8CBAA34C1AC5FECF00F0DDCD /* SignInViewController.swift in Sources */,
-				8CE3F15A1B055867003C2083 /* createGameController.swift in Sources */,
+				8CEC85BB1B2B57EE00F72D96 /* createGameController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,6 +465,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -531,11 +535,13 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/UltimateUp",
 					"$(PROJECT_DIR)/Framework",
+					"$(PROJECT_DIR)/Pods/GoogleMaps/Frameworks",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/Pods-UltimateUp",
 				);
 				INFOPLIST_FILE = UltimateUp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_CODE_SIGN_FLAGS = "";
-				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.uw.pshfls.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "UltimateUp/UltimateUp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -552,11 +558,13 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/UltimateUp",
 					"$(PROJECT_DIR)/Framework",
+					"$(PROJECT_DIR)/Pods/GoogleMaps/Frameworks",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/Pods-UltimateUp",
 				);
 				INFOPLIST_FILE = UltimateUp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_CODE_SIGN_FLAGS = "";
-				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.uw.pshfls.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "UltimateUp/UltimateUp-Bridging-Header.h";
 			};
@@ -576,6 +584,7 @@
 				);
 				INFOPLIST_FILE = UltimateUpTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.uw.pshfls.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UltimateUp.app/UltimateUp";
 			};
@@ -591,6 +600,7 @@
 				);
 				INFOPLIST_FILE = UltimateUpTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.uw.pshfls.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UltimateUp.app/UltimateUp";
 			};

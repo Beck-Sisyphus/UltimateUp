@@ -33,16 +33,16 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
             locationManager.requestWhenInUseAuthorization()
         }
 
-        var camera = GMSCameraPosition.cameraWithLatitude(47.655,
+        let camera = GMSCameraPosition.cameraWithLatitude(47.655,
             longitude: -122.308, zoom: 14)
-        var mapView = GMSMapView.mapWithFrame(CGRectZero, camera: camera)
+        let mapView = GMSMapView.mapWithFrame(CGRectZero, camera: camera)
         mapView.myLocationEnabled = true
         // self.view = mapView
         // self.view.addSubview(GoogleMap)
         // self.GoogleMap = mapView
         self.GoogleMap.camera = camera
 
-        var marker = GMSMarker()
+        let marker = GMSMarker()
         marker.position = CLLocationCoordinate2DMake(47.655, -122.308)
         marker.title = "Sydney"
         marker.snippet = "Australia"
@@ -50,16 +50,16 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     @IBAction func createGame(sender: UIButton) {
-        println("\(latitude)")
-        println("\(longitude)")
+        print("\(latitude)", appendNewline: false)
+        print("\(longitude)", appendNewline: false)
         performSegueWithIdentifier("createGame", sender: self)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // pull out a UIViewController from a NavigationController
-        var destination = segue.destinationViewController as? UIViewController
+        var destination = segue.destinationViewController as! UIViewController
         if let navControler = destination as? UINavigationController {
-            destination = navControler.visibleViewController
+            destination = navControler.visibleViewController!
         }
         
         if let vc = destination as? createGameController{
@@ -73,8 +73,8 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     // These two methods get current position
-    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-        var currentLocations: [CLLocation]? = locations as? [CLLocation]
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [AnyObject]) {
+        let currentLocations: [CLLocation]? = locations as? [CLLocation]
         if let current = currentLocations as [CLLocation]! {
             latitude = current[0].coordinate.latitude
             longitude = current[1].coordinate.longitude
@@ -82,7 +82,7 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
-    func locationManager(manager: CLLocationManager!,
+    func locationManager(manager: CLLocationManager,
         didChangeAuthorizationStatus status: CLAuthorizationStatus)
     {
         manager.requestWhenInUseAuthorization()

@@ -19,7 +19,6 @@ socket.on("currentAmount") {data, ack in
     }
 }
 
-// Connect
 socket.connect()
 ```
 
@@ -27,12 +26,18 @@ socket.connect()
 ```objective-c
 SocketIOClient* socket = [[SocketIOClient alloc] initWithSocketURL:@"localhost:8080" options:nil];
 
-[socket on: @"connect" callback: ^(NSArray* data, void (^ack)(NSArray*)) {
-    NSLog(@"connected");
-    [socket emit:@"echo" withItems:@[@"echo test"]];
-    [socket emitWithAck:@"ackack" withItems:@[@1]](10, ^(NSArray* data) {
-        NSLog(@"Got ack");
+[socket on:@"connect" callback:^(NSArray* data, void (^ack)(NSArray*)) {
+    NSLog(@"socket connected");
+}];
+
+[socket on:@"currentAmount" callback:^(NSArray* data, void (^ack)(NSArray*)) {
+    double cur = [[data objectAtIndex:0] floatValue];
+
+    [socket emitWithAck:@"canUpdate" withItems:@[@(cur)]](0, ^(NSArray* data) {
+        [socket emit:@"update" withItems:@[@{@"amount": @(cur + 2.50)}]];
     });
+
+    ack(@[@"Got your currentAmount, ", @"dude"]);
 }];
 
 [socket connect];
@@ -88,15 +93,17 @@ Constructors
 
 Options
 -------
+- `connectParams: [String: AnyObject]?` - Dictionary whose contents will be passed with the connection.
 - `reconnects: Bool` Default is `true`
 - `reconnectAttempts: Int` Default is `-1` (infinite tries)
 - `reconnectWait: Int` Default is `10`
 - `forcePolling: Bool` Default is `false`. `true` forces the client to use xhr-polling.
 - `forceWebsockets: Bool` Default is `false`. `true` forces the client to use WebSockets.
-- `nsp: String` Default is `"/"`
+- `nsp: String` Default is `"/"`. Connects to a namespace.
 - `cookies: [NSHTTPCookie]?` An array of NSHTTPCookies. Passed during the handshake. Default is nil.
 - `log: Bool` If `true` socket will log debug messages. Default is false.
 - `sessionDelegate: NSURLSessionDelegate` Sets an NSURLSessionDelegate for the underlying engine. Useful if you need to handle self-signed certs. Default is nil.
+- `path: String` - If the server uses a custom path. ex: `"/swift"`. Default is `""`
 
 Methods
 -------
@@ -107,10 +114,13 @@ Methods
 5. `emitWithAck(event:String, _ items:AnyObject...) -> (timeout:UInt64, callback:(NSArray?) -> Void) -> Void` - Sends a message that requests an acknowledgement from the server. Returns a function which you can use to add a handler. See example. Note: The message is not sent until you call the returned function.
 6. `emitWithAck(event:String, withItems items:[AnyObject]) -> (UInt64, (NSArray?) -> Void) -> Void` - `emitWithAck` for Objective-C. Note: The message is not sent until you call the returned function.
 7. `connect()` - Establishes a connection to the server. A "connect" event is fired upon successful connection.
-8. `connectWithParams(params:[String: AnyObject])` - Establishes a connection to the server passing the specified params. A "connect" event is fired upon successful connection.
+8. `connect(#timeoutAfter:Int, withTimeoutHandler handler:(() -> Void)?)` - Connect to the server. If it isn't connected after timeoutAfter seconds, the handler is called.
 9. `close(#fast:Bool)` - Closes the socket. Once a socket is closed it should not be reopened. Pass true to fast if you're closing from a background task.
+10. `reconnect()` - Causes the client to reconnect to the server.
+11. `joinNamespace()` - Causes the client to join nsp. Shouldn't need to be called unless you change nsp manually.
+12. `leaveNamespace()` - Causes the client to leave the nsp and go back to /
 
-Events
+Client Events
 ------
 1. `connect` - Emitted when on a successful connection.
 2. `disconnect` - Emitted when the connection is closed.

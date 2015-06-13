@@ -7,12 +7,31 @@
 //
 
 import UIKit
+import Socket_IO_Client_Swift
 
-class createGameController: UITableViewController {
+class createGameController: UIViewController {
+    // Setting for segue
     var setting: Bool = false {
         didSet {
             title = "\(setting)"
         }
+    }
+
+    let serverURL = "52.4.253.222/mobi"
+    let socket = SocketIOClient(socketURL: "52.4.253.222/mobi")
+    
+    @IBAction func socket(sender: UIButton) {
+        print("use socket", appendNewline: false)
+        
+        socket.on("connect") {data, ack in
+            print("socket connected")
+        }
+        
+        socket.emitWithAck("hello world", "Beck") (timeout: 10) { data in
+            print("hello world")
+        }
+        
+        socket.connect()
     }
     
     override func viewDidLoad() {
