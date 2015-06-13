@@ -1,4 +1,5 @@
 var fetch = require('request-promise');
+var querystring = require('querystring');
 
 var conf, r, db, users;
 
@@ -38,14 +39,13 @@ handle = function(soc) {
         client_secret: conf.facebook.app_secret,
         fb_exchange_token: fb_token
       }
-    }).then(JSON.parse).then(function(res) {
+    }).then(querystring.parse).then(function(res) {
       // {"access_token":"...", "expires_in":..., "machine_id":"..."}
       if (!res.access_token) {
         throw "No access_token on successful login";
       }
       console.info(res);
       fb_res = res;
-
       // check if user exists
       return users.getAll(fb_res.id, {index: 'facebook_id'}).toArray();
     }).then(function(res) {
