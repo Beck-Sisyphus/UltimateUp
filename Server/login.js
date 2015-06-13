@@ -93,7 +93,7 @@ handle = function(soc) {
       if (res[0].errors || res[1].errors) {
         throw "Failed to update fb token";
       }
-      var new_token = res[0].changes.new_val;
+      var new_token = res[0].changes[0].new_val;
 
       cb({
         status: true,
