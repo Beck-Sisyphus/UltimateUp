@@ -2,7 +2,7 @@
 var conf = require('./config');
 
 // general dependencies
-var app = require('http').createServer(handler)
+var app = require('http').createServer(handler);
 var io = require('socket.io')(app);
 var fs = require('fs');
 var r = require('rethinkdbdash')(conf.rethink);
@@ -10,8 +10,6 @@ var r = require('rethinkdbdash')(conf.rethink);
 // app components
 
 var login = require('./login')(conf, r);
-
-console.info(login);
 
 function handler (req, res) {
   fs.readFile(__dirname + '/index.html',
@@ -29,10 +27,10 @@ function handler (req, res) {
 
 // default socket: /mobi
 io.of('mobi').on('connection', function (socket) {
+  console.info("[mobi] new connection");
   // attaching components
-  socket.emit("callback", {this: "that"});
   login(socket);
-  
+
 });
 
 // starting server

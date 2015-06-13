@@ -26,7 +26,7 @@ describe("Connection", function() {
 
 describe("Login", function() {
 
-  it("should be able to login via fb", function() {
+  it("should be able to login via fb", function(done) {
     socketConnect(function(client) {
       client.emit("fb_login", {
         fb_token: testData.fb_token
