@@ -28,15 +28,14 @@ handle = function(soc) {
 
     if (!fb_token) {
       throw "No fb_token provided";
-      return;
     }
 
     fetch({
       url: "http://graph.facebook.com/oauth/access_token",
       qs: {
         grant_type: "fb_exchange_token",
-        client_id: conf.FACEBOOK_APP_ID,
-        client_secret: conf.FACEBOOK_APP_SECRET,
+        client_id: conf.facebook.app_id,
+        client_secret: conf.facebook.app_secret,
         fb_exchange_token: fb_token
       }
     }).then(JSON.parse).then(function(res) {
