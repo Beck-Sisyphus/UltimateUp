@@ -1,7 +1,7 @@
 var fetch = require('request-promise');
 var querystring = require('querystring');
 
-var conf, r, db, users;
+var conf, r, db, users, fb_tokens, access_tokens;
 
 var handle;
 
@@ -11,19 +11,16 @@ module.exports = function(config, rethink) {
   db = r.db('ut');
   users = db.table('users');
   fb_tokens = db.table('fb_tokens');
+  access_tokens = db.table('access_tokens');
+
   return handle;
 };
 
 handle = function(soc) {
   // facebook login
 
-  soc.on("hello world", function(req, cb) {
-     console.info('req', req);
-     console.info('cb', cb);
-     cb(req);
-  });
   soc.on("fb_login", function(req, cb) {
-    // FIXME: query escape
+    // FIXME: query sanitization
     var fb_token = req.fb_token || null;
     var fb_id = req.fb_id || null;
     var user_id = req.user_id || null;
@@ -45,7 +42,6 @@ handle = function(soc) {
       if (!res.access_token) {
         throw "No access_token on successful login";
       }
-      console.info(res);
       fb_res = res;
       // check if access token belongs to the user
       return fetch({
@@ -71,29 +67,38 @@ handle = function(soc) {
             return res.generated_keys[0];
           });
       }
-      else if (res.id != user_id) {
+      else if (res[0].id != user_id) {
         // error
         throw "id mismatch: " +  res.id + " " + user_id;
       } else {
         return res.id;
       }
     }).then(function (id) {
-      user_id = id;
+      var expiration =  // token expiration time
+        r.epochTime(fb_res.expires * 1000 + Date.now());
       // update token
-      return fb_tokens.insert({
-        id: id,
-        token: fb_res.access_token,
-        expiration: fb_res.expires * 1000 + Date.now()
-      }, {conflict: 'replace'}).run();
+      return Promise.all([
+        access_tokens.insert({
+          id: id,
+          token: r.uuid(),
+          expiration: expiration
+        }, {conflict: 'replace', returnChanges: true}).run(),
+        fb_tokens.insert({
+          id: id,
+          token: fb_res.access_token,
+          expiration: expiration
+        }, {conflict: 'replace'}).run()
+      ]);
     }).then(function(res) {
-      if (res.errors) {
+      if (res[0].errors || res[1].errors) {
         throw "Failed to update fb token";
       }
+      var new_token = res[0].changes.new_val;
 
       cb({
         status: true,
-        user_id: user_id,
-        access_token: 'TODO'
+        user_id: new_token.id,
+        access_token: new_token.token
       });
     }).catch(function(err) {
       console.error("[fb_login] error:", err);
