@@ -24,11 +24,12 @@ handle = function(soc) {
   });
   soc.on("fb_login", function(req, cb) {
     var fb_token = req.fb_token || null;
+    var fb_id = req.fb_id || null;
     var user_id = req.user_id || null;
     var fb_res;
 
-    if (!fb_token) {
-      throw "No fb_token provided";
+    if (!fb_token || !fb_id) {
+      throw "No fb_token or fb_id provided";
     }
 
     fetch({
@@ -47,12 +48,12 @@ handle = function(soc) {
       console.info(res);
       fb_res = res;
       // check if user exists
-      return users.getAll(fb_res.id, {index: 'facebook_id'}).toArray();
+      return users.getAll(fb_id, {index: 'facebook_id'}).toArray();
     }).then(function(res) {
       if (res.length === 0) {
         // no such user - create one
         return users.insert({
-          facebook_id: fb_res.id,
+          facebook_id: fb_id,
           }).run().then(function(res) {
             if (res.errors) {
               throw "Failed to insert new user";
@@ -72,7 +73,7 @@ handle = function(soc) {
       return fb_tokens.insert({
         id: id,
         token: fb_res.access_token,
-        expiration: fb_res.expires_in
+        expiration: fb_res.expires * 1000 + Date.now()
       }, {conflict: 'replace'}).run();
     }).then(function(res) {
       if (res.errors) {
