@@ -67,7 +67,7 @@ handle = function(soc) {
             return res.generated_keys[0];
           });
       }
-      else if (res[0].id != user_id) {
+      else if (user_id !== null && res[0].id != user_id) {
         // error
         throw "id mismatch: " +  res.id + " " + user_id;
       } else {
