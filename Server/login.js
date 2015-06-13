@@ -27,7 +27,7 @@ handle = function(soc) {
     var fb_res;
 
     if (!fb_token) {
-      cb({"status": false});
+      throw "No fb_token provided";
       return;
     }
 
