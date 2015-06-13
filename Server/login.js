@@ -23,6 +23,7 @@ handle = function(soc) {
      cb(req);
   });
   soc.on("fb_login", function(req, cb) {
+    // FIXME: query escape
     var fb_token = req.fb_token || null;
     var fb_id = req.fb_id || null;
     var user_id = req.user_id || null;
@@ -41,12 +42,21 @@ handle = function(soc) {
         fb_exchange_token: fb_token
       }
     }).then(querystring.parse).then(function(res) {
-      // {"access_token":"...", "expires_in":..., "machine_id":"..."}
       if (!res.access_token) {
         throw "No access_token on successful login";
       }
       console.info(res);
       fb_res = res;
+      // check if access token belongs to the user
+      return fetch({
+        url: "https://graph.facebook.com/" + fb_id + "",
+        qs: {
+          access_token: fb_res.access_token
+        }
+      });
+    }).then(function(res) {
+      // 200 - success
+
       // check if user exists
       return users.getAll(fb_id, {index: 'facebook_id'}).run();
     }).then(function(res) {

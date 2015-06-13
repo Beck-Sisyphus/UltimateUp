@@ -15,9 +15,10 @@ r.dbCreate("ut").run()
   return Promise.all([
     db.tableCreate("users").run(),
     db.tableCreate("fb_tokens").run(),
+    db.tableCreate("access_tokens").run(),
     db.tableCreate("geo").run(),
     db.tableCreate("friends").run(),
-    db.tableCreate("games", {primaryKey: "game-id"}).run()
+    db.tableCreate("games", {primaryKey: "game-id"}).run(),
   ]);
  }).then(function(res) {
   if (res.some(function(s) {return !s.tables_created;})) {
@@ -26,7 +27,7 @@ r.dbCreate("ut").run()
   }
 
   console.info("Creating indices...");
-  
+
   var db = r.db("ut");
   return Promise.all([
     db.table("users").indexCreate("facebook_id").run(),
