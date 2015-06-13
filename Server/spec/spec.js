@@ -40,24 +40,25 @@ describe("Login", function() {
     });
   });
 
-  // it("should be able to login via token", function() {
-  //   socketConnect(function(client) {
-  //     client.emit("fb_login", {
-  //       fb_token: testData.fb_token
-  //     }, function(res) {
-  //       client.disconnect();
-  //       socketConnect(function(client2) {
-  //         client.emit("login", {
-  //           access_token: res.access_token,
-  //           user_id: res.user_id
-  //         }, function(res2) {
-  //           expect(res2.status).toBeTruthy();
-  //           expect(res2.user_id).toBe(res.user_id);
-  //           client.disconnect();
-  //           done();
-  //         });
-  //       });
-  //     });
-  //   });
-  // });
+  it("should be able to login via token", function() {
+    socketConnect(function(client) {
+      client.emit("fb_login", {
+        fb_id: testData.fb_id,
+        fb_token: testData.fb_token
+      }, function(res) {
+        client.disconnect();
+        socketConnect(function(client2) {
+          client2.emit("login", {
+            access_token: res.access_token,
+            user_id: res.user_id
+          }, function(res2) {
+            expect(res2.status).toBeTruthy();
+            expect(res2.user_id).toBe(res.user_id);
+            client2.disconnect();
+            done();
+          });
+        });
+      });
+    });
+  });
 });

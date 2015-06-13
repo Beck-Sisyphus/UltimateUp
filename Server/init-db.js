@@ -14,7 +14,7 @@ r.dbCreate("ut").run()
 
   return Promise.all([
     db.tableCreate("users").run(),
-    db.tableCreate("fb_tokens").run(),
+    db.tableCreate("fb_tokens", {primaryKey: "token"}).run(),
     db.tableCreate("access_tokens").run(),
     db.tableCreate("geo").run(),
     db.tableCreate("friends").run(),

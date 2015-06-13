@@ -102,11 +102,35 @@ handle = function(soc) {
       });
     }).catch(function(err) {
       console.error("[fb_login] error:", err);
-      cb({"status": false});
+      cb({status: false});
     });
   });
 
+  // normal login
 
+  soc.on("login", function(req, cb) {
+    // FIXME: query sanitization
+    var user_id = req.user_id || null;
+    var access_token = req.access_token || null;
+
+    tokens.get(access_token).run()
+    .then(function(res) {
+      if (res === null) {
+        throw "Access_token not found in table";
+      }
+      else if (res.id != user_id) {
+        throw "user id mismatch: " + res.id + ", " + user_id;
+      }
+      else if (res.expiration.valueOf() < Date.now()) {
+        throw "Expired token: " + res.expiration;
+      }
+      cb({status: true, user_id: res.id});
+    })
+    .catch(function(err) {
+      console.error("[login] error:", err);
+      cb({status: false});
+    });
+  });
 
 
 };
