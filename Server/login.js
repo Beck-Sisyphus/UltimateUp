@@ -1,9 +1,10 @@
 var fetch = require('request-promise');
 var querystring = require('querystring');
+var session = require('./session');
 
 var conf, r, db, users, fb_tokens, access_tokens;
 
-var handle;
+var handle, preauth;
 
 module.exports = function(config, rethink) {
   conf = config;
@@ -13,7 +14,45 @@ module.exports = function(config, rethink) {
   fb_tokens = db.table('fb_tokens');
   access_tokens = db.table('access_tokens');
 
-  return handle;
+  return {handle: handle, preauth: preauth};
+};
+
+preauth = function(soc, next) {
+  var user_id = soc.request.headers["x-user-id"] || "";
+  var access_token = soc.request.headers["x-access-token"] || "";
+
+  if (user_id || access_token) {
+    // has login
+
+    if (!user_id || !access_token) {
+      console.error("[login] No fb_token or fb_id provided");
+      return next({name: "bad login parameters"});
+    }
+
+    tokens.get(access_token).run()
+    .then(function(res) {
+      if (res === null) {
+        throw "Access_token not found in table";
+      }
+      else if (res.id != user_id) {
+        throw "user id mismatch: " + res.id + ", " + user_id;
+      }
+      else if (res.expiration.valueOf() < Date.now()) {
+        throw "Expired token: " + res.expiration;
+      }
+      // success
+      session.setAuthenticated(soc);
+      next();
+    })
+    .catch(function(err) {
+      console.error("[login] error:", err);
+      next({name: "login failed"});
+    });
+  }
+  else {
+    // no login
+    next();
+  }
 };
 
 handle = function(soc) {
@@ -27,7 +66,8 @@ handle = function(soc) {
     var fb_res;
 
     if (!fb_token || !fb_id) {
-      throw "No fb_token or fb_id provided";
+      console.error("[fb_login] No fb_token or fb_id provided");
+      return cb({status: false});
     }
 
     fetch({
@@ -95,6 +135,7 @@ handle = function(soc) {
       }
       var new_token = res[0].changes[0].new_val;
 
+      session.setAuthenticated(soc);
       cb({
         status: true,
         user_id: new_token.id,
@@ -106,31 +147,31 @@ handle = function(soc) {
     });
   });
 
-  // normal login
-
-  soc.on("login", function(req, cb) {
-    // FIXME: query sanitization
-    var user_id = req.user_id || null;
-    var access_token = req.access_token || null;
-
-    tokens.get(access_token).run()
-    .then(function(res) {
-      if (res === null) {
-        throw "Access_token not found in table";
-      }
-      else if (res.id != user_id) {
-        throw "user id mismatch: " + res.id + ", " + user_id;
-      }
-      else if (res.expiration.valueOf() < Date.now()) {
-        throw "Expired token: " + res.expiration;
-      }
-      cb({status: true, user_id: res.id});
-    })
-    .catch(function(err) {
-      console.error("[login] error:", err);
-      cb({status: false});
-    });
-  });
+  // // normal login
+  //
+  // soc.on("login", function(req, cb) {
+  //   // FIXME: query sanitization
+  //   var user_id = req.user_id || null;
+  //   var access_token = req.access_token || null;
+  //
+  //   tokens.get(access_token).run()
+  //   .then(function(res) {
+  //     if (res === null) {
+  //       throw "Access_token not found in table";
+  //     }
+  //     else if (res.id != user_id) {
+  //       throw "user id mismatch: " + res.id + ", " + user_id;
+  //     }
+  //     else if (res.expiration.valueOf() < Date.now()) {
+  //       throw "Expired token: " + res.expiration;
+  //     }
+  //     cb({status: true, user_id: res.id});
+  //   })
+  //   .catch(function(err) {
+  //     console.error("[login] error:", err);
+  //     cb({status: false});
+  //   });
+  // });
 
 
 };

@@ -3,7 +3,7 @@ var conf = require('./config');
 
 // general dependencies
 var app = require('http').createServer(handler);
-var io = require('socket.io')(app);
+var io = require('socket.io')(app, conf.io);
 var fs = require('fs');
 var r = require('rethinkdbdash')(conf.rethink);
 
@@ -26,10 +26,12 @@ function handler (req, res) {
 
 
 // default socket: /mobi
-io.of('mobi').on('connection', function (socket) {
+io.of('mobi')
+.use(login.preauth)
+.on('connection', function (socket) {
   console.info("[mobi] new connection");
   // attaching components
-  login(socket);
+  login.handle(socket);
 
 });
 

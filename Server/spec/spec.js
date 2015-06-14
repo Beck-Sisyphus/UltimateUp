@@ -13,6 +13,23 @@ var socketConnect = function(cb) {
   client.on('connect', function() {
     cb(client);
   });
+
+  return client;
+};
+
+var connectWithLogin = function(id, token, cb) {
+  var opts = Object.create(options);
+  opts.extraHeaders = {
+    "X-Access-Token": token,
+    "X-User-ID": id
+  };
+  var client = io.connect(socketURL, opts);
+
+  client.on('connect', function() {
+    cb(client);
+  });
+
+  return client;
 };
 
 describe("Connection", function() {
@@ -47,16 +64,11 @@ describe("Login", function() {
         fb_token: testData.fb_token
       }, function(res) {
         client.disconnect();
-        socketConnect(function(client2) {
-          client2.emit("login", {
-            access_token: res.access_token,
-            user_id: res.user_id
-          }, function(res2) {
-            expect(res2.status).toBeTruthy();
-            expect(res2.user_id).toBe(res.user_id);
-            client2.disconnect();
-            done();
-          });
+        connectWithLogin(res.user_id, res.access_token, function(client2) {
+          client2.disconnect();
+          done();
+        }).on("error", function(e) {
+          throw e;
         });
       });
     });
