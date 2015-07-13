@@ -10,7 +10,7 @@ import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
 
-class SignInViewController: UIViewController, FBSDKLoginButtonDelegate {
+class SignInViewController: UIViewController, FBSDKLoginButtonDelegate, UISplitViewControllerDelegate {
     
     // The view navigation part of the code
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -36,6 +36,8 @@ class SignInViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Allow the master view as the first view
+        splitViewController?.delegate = self
         // Do any additional setup after loading the view, typically from a nib.
         if (FBSDKAccessToken.currentAccessToken() != nil) {
             loginButton.readPermissions = ["public_profile", "user_education_history"]
@@ -105,5 +107,10 @@ class SignInViewController: UIViewController, FBSDKLoginButtonDelegate {
                 self.performSegueWithIdentifier("AfterSignIn", sender: self)
             }
         })
+    }
+    
+    // Allow the master view becomes the first screen
+    func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController: UIViewController, ontoPrimaryViewController primaryViewController: UIViewController) -> Bool {
+        return true
     }
 }

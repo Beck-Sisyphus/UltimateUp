@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8121.17" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="WtM-Yk-o9M">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8121.17" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="aAv-Lf-Qdu">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8101.14"/>
@@ -26,7 +26,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="irB-A9-AMQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2068.5" y="-1025"/>
+            <point key="canvasLocation" x="-1150.5" y="-1025"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="GUY-dq-Bkp">
@@ -134,7 +134,20 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6mu-k5-MUL" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1275" y="-1025"/>
+            <point key="canvasLocation" x="-357" y="-1025"/>
+        </scene>
+        <!--Split View Controller-->
+        <scene sceneID="0hG-gk-FnV">
+            <objects>
+                <splitViewController id="aAv-Lf-Qdu" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="lQe-Ay-xyB" kind="relationship" relationship="masterViewController" id="HcO-Bm-loO"/>
+                        <segue destination="m6Z-jO-Emd" kind="relationship" relationship="detailViewController" id="Cfc-cX-zzo"/>
+                    </connections>
+                </splitViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RbD-rJ-klb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3720" y="-462"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="e5i-hP-Hgz">
@@ -150,7 +163,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rig-WA-b0B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2068.5" y="-237"/>
+            <point key="canvasLocation" x="-1150.5" y="-239"/>
         </scene>
         <!--Create Game Controller-->
         <scene sceneID="kqI-ar-IKH">
@@ -193,7 +206,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Ok-68-TDP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1275" y="-237"/>
+            <point key="canvasLocation" x="-357" y="-239"/>
         </scene>
         <!--SignIn View Controller-->
         <scene sceneID="jhH-67-u5v">
@@ -212,6 +225,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="46"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="20" y="118" width="360" height="72"/>
+                                </variation>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H7H-mI-KRU" customClass="FBSDKLoginButton">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -305,6 +321,7 @@
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" id="b2p-S7-EIl"/>
                     <connections>
                         <outlet property="loginButton" destination="H7H-mI-KRU" id="2BM-ux-kuv"/>
                         <segue destination="uc4-PZ-ZbS" kind="showDetail" identifier="AfterSignIn" id="Tr3-Uw-dNp"/>
@@ -312,10 +329,31 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="syI-SJ-pI3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2907" y="-1263"/>
+            <point key="canvasLocation" x="-1989" y="-1025"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="kxO-2J-k9l">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lQe-Ay-xyB" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="j3d-E8-p1H">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="WtM-Yk-o9M" kind="relationship" relationship="rootViewController" id="qkf-Bk-UA4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zfT-Ip-92r" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2907" y="-1025"/>
         </scene>
     </scenes>
     <resources>
         <image name="road_4-1.png" width="4" height="1"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="iUI-04-mDx"/>
+    </inferredMetricsTieBreakers>
 </document>
