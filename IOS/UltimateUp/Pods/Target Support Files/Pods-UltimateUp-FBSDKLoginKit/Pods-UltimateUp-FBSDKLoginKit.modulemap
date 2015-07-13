@@ -1,6 +1,0 @@
-framework module FBSDKLoginKit {
-  umbrella header "Pods-UltimateUp-FBSDKLoginKit-umbrella.h"
-
-  export *
-  module * { export * }
-}

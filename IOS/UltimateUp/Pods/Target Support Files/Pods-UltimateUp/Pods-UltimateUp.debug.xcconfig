@@ -1,9 +1,8 @@
-FRAMEWORK_SEARCH_PATHS = $(inherited) "$PODS_FRAMEWORK_BUILD_PATH" "$(PODS_ROOT)/GoogleMaps/Frameworks"
+FRAMEWORK_SEARCH_PATHS = "$(PODS_ROOT)/GoogleMaps/Frameworks"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
-OTHER_CFLAGS = $(inherited) -iquote "$PODS_FRAMEWORK_BUILD_PATH/Bolts.framework/Headers" -iquote "$PODS_FRAMEWORK_BUILD_PATH/FBSDKCoreKit.framework/Headers" -iquote "$PODS_FRAMEWORK_BUILD_PATH/FBSDKLoginKit.framework/Headers" -iquote "$PODS_FRAMEWORK_BUILD_PATH/FBSDKShareKit.framework/Headers" -iquote "$PODS_FRAMEWORK_BUILD_PATH/GoogleMaps.framework/Headers" -iquote "$PODS_FRAMEWORK_BUILD_PATH/Socket_IO_Client_Swift.framework/Headers"
-OTHER_LDFLAGS = $(inherited) -ObjC -l"c++" -l"icucore" -l"z" -framework "AVFoundation" -framework "Accelerate" -framework "Bolts" -framework "CoreBluetooth" -framework "CoreData" -framework "CoreGraphics" -framework "CoreLocation" -framework "CoreText" -framework "FBSDKCoreKit" -framework "FBSDKLoginKit" -framework "FBSDKShareKit" -framework "GLKit" -framework "GoogleMaps" -framework "ImageIO" -framework "OpenGLES" -framework "QuartzCore" -framework "Security" -framework "Socket_IO_Client_Swift" -framework "SystemConfiguration"
-OTHER_LIBTOOLFLAGS = $(OTHER_LDFLAGS)
+OTHER_CFLAGS = $(inherited) -iquote "$CONFIGURATION_BUILD_DIR/Bolts.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/FBSDKCoreKit.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/FBSDKLoginKit.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/GoogleMaps.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/Socket_IO_Client_Swift.framework/Headers"
+OTHER_LDFLAGS = $(inherited) -l"c++" -l"icucore" -l"z" -framework "AVFoundation" -framework "Accelerate" -framework "Bolts" -framework "CoreBluetooth" -framework "CoreData" -framework "CoreGraphics" -framework "CoreLocation" -framework "CoreText" -framework "FBSDKCoreKit" -framework "FBSDKLoginKit" -framework "GLKit" -framework "GoogleMaps" -framework "ImageIO" -framework "OpenGLES" -framework "QuartzCore" -framework "Security" -framework "Socket_IO_Client_Swift" -framework "SystemConfiguration"
 OTHER_SWIFT_FLAGS = $(inherited) "-D" "COCOAPODS"
 PODS_FRAMEWORK_BUILD_PATH = $(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Pods-UltimateUp
 PODS_ROOT = ${SRCROOT}/Pods

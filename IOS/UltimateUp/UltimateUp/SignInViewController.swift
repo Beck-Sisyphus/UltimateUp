@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FBSDKCoreKit
 import FBSDKLoginKit
 
 class SignInViewController: UIViewController, FBSDKLoginButtonDelegate {
@@ -80,12 +81,12 @@ class SignInViewController: UIViewController, FBSDKLoginButtonDelegate {
     func returnUserData()
     {
         // Both Access Token and FB ID needed for sign in process
-        println("Access Token is:")
-        println(FBSDKAccessToken.currentAccessToken().tokenString)
-        println("User ID is:")
-        println(FBSDKAccessToken.currentAccessToken().userID)
-        println("It's experiation date is:")
-        println(FBSDKAccessToken.currentAccessToken().expirationDate)
+        print("Access Token is:")
+        print(FBSDKAccessToken.currentAccessToken().tokenString)
+        print("User ID is:")
+        print(FBSDKAccessToken.currentAccessToken().userID)
+        print("It's experiation date is:")
+        print(FBSDKAccessToken.currentAccessToken().expirationDate)
         
         let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: nil)
         graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in

@@ -10,7 +10,6 @@
 		41E184BA6063B6259B256D04 /* Pods_UltimateUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6E8376595E9D5A26FE06EF /* Pods_UltimateUp.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		8C2CB67C1B2A9BFA002425D5 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C2CB6781B2A9AC7002425D5 /* CoreBluetooth.framework */; };
 		8C2CB67D1B2A9BFF002425D5 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C2CB67A1B2A9AD0002425D5 /* Accelerate.framework */; };
-		8C2CB6821B2AA3DA002425D5 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8C2CB6811B2AA3DA002425D5 /* GoogleMaps.bundle */; };
 		8C94DC431AC2715000A6205D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C94DC421AC2715000A6205D /* AppDelegate.swift */; };
 		8C94DC451AC2715000A6205D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C94DC441AC2715000A6205D /* MainViewController.swift */; };
 		8C94DC481AC2715000A6205D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C94DC461AC2715000A6205D /* Main.storyboard */; };
@@ -18,18 +17,6 @@
 		8C94DC4D1AC2715000A6205D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C94DC4B1AC2715000A6205D /* LaunchScreen.xib */; };
 		8C94DC591AC2715000A6205D /* UltimateUpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C94DC581AC2715000A6205D /* UltimateUpTests.swift */; };
 		8CBAA34C1AC5FECF00F0DDCD /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBAA34B1AC5FECF00F0DDCD /* SignInViewController.swift */; };
-		8CCE92091AE489740005C58C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CCE92081AE489740005C58C /* AVFoundation.framework */; };
-		8CCE920B1AE4898C0005C58C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CCE920A1AE4898C0005C58C /* CoreData.framework */; };
-		8CCE920D1AE489950005C58C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CCE920C1AE489950005C58C /* CoreLocation.framework */; };
-		8CCE920F1AE48A130005C58C /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CCE920E1AE48A130005C58C /* CoreText.framework */; };
-		8CCE92111AE48A1B0005C58C /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CCE92101AE48A1B0005C58C /* GLKit.framework */; };
-		8CCE92131AE48A230005C58C /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CCE92121AE48A230005C58C /* ImageIO.framework */; };
-		8CCE92151AE48F060005C58C /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CCE92141AE48F060005C58C /* libc++.dylib */; };
-		8CCE92171AE48F0F0005C58C /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CCE92161AE48F0F0005C58C /* libicucore.dylib */; };
-		8CCE92191AE48F160005C58C /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CCE92181AE48F160005C58C /* libz.dylib */; };
-		8CCE921B1AE48F1E0005C58C /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CCE921A1AE48F1E0005C58C /* OpenGLES.framework */; };
-		8CCE921D1AE48F250005C58C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CCE921C1AE48F250005C58C /* QuartzCore.framework */; };
-		8CCE921F1AE48F2C0005C58C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CCE921E1AE48F2C0005C58C /* SystemConfiguration.framework */; };
 		8CEC85BB1B2B57EE00F72D96 /* createGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEC85BA1B2B57EE00F72D96 /* createGameController.swift */; };
 /* End PBXBuildFile section */
 
@@ -46,7 +33,6 @@
 /* Begin PBXFileReference section */
 		8C2CB6781B2A9AC7002425D5 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		8C2CB67A1B2A9AD0002425D5 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
-		8C2CB6811B2AA3DA002425D5 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = Pods/GoogleMaps/Frameworks/GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
 		8C94DC3D1AC2715000A6205D /* UltimateUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UltimateUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C94DC411AC2715000A6205D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C94DC421AC2715000A6205D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -59,25 +45,6 @@
 		8C94DC581AC2715000A6205D /* UltimateUpTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltimateUpTests.swift; sourceTree = "<group>"; };
 		8C94DC671AC2732E00A6205D /* UltimateUp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UltimateUp-Bridging-Header.h"; sourceTree = "<group>"; };
 		8CBAA34B1AC5FECF00F0DDCD /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
-		8CBAA3511AC662D200F0DDCD /* FBAudienceNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBAudienceNetwork.framework; path = Framework/FBAudienceNetwork.framework; sourceTree = SOURCE_ROOT; };
-		8CBAA3531AC662DC00F0DDCD /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = Framework/FBSDKCoreKit.framework; sourceTree = SOURCE_ROOT; };
-		8CBAA3551AC662E500F0DDCD /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = Framework/FBSDKLoginKit.framework; sourceTree = SOURCE_ROOT; };
-		8CBAA3571AC6633300F0DDCD /* FBSDKMessengerShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKMessengerShareKit.framework; path = Framework/FBSDKMessengerShareKit.framework; sourceTree = SOURCE_ROOT; };
-		8CBAA3591AC6633A00F0DDCD /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = Framework/FBSDKShareKit.framework; sourceTree = SOURCE_ROOT; };
-		8CCE92041AE485CA0005C58C /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
-		8CCE92061AE487360005C58C /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
-		8CCE92081AE489740005C58C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		8CCE920A1AE4898C0005C58C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		8CCE920C1AE489950005C58C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		8CCE920E1AE48A130005C58C /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
-		8CCE92101AE48A1B0005C58C /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
-		8CCE92121AE48A230005C58C /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
-		8CCE92141AE48F060005C58C /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
-		8CCE92161AE48F0F0005C58C /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
-		8CCE92181AE48F160005C58C /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
-		8CCE921A1AE48F1E0005C58C /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
-		8CCE921C1AE48F250005C58C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		8CCE921E1AE48F2C0005C58C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		8CEC85B31B2B3D9900F72D96 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "Pods/../build/Debug-iphoneos/Pods-UltimateUp/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
 		8CEC85B51B2B407000F72D96 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "Pods/../build/Debug-iphoneos/Pods-UltimateUp/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
 		8CEC85B71B2B409100F72D96 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "Pods/../build/Debug-iphoneos/Pods-UltimateUp/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
@@ -94,18 +61,6 @@
 			files = (
 				8C2CB67D1B2A9BFF002425D5 /* Accelerate.framework in Frameworks */,
 				8C2CB67C1B2A9BFA002425D5 /* CoreBluetooth.framework in Frameworks */,
-				8CCE921F1AE48F2C0005C58C /* SystemConfiguration.framework in Frameworks */,
-				8CCE921D1AE48F250005C58C /* QuartzCore.framework in Frameworks */,
-				8CCE921B1AE48F1E0005C58C /* OpenGLES.framework in Frameworks */,
-				8CCE92191AE48F160005C58C /* libz.dylib in Frameworks */,
-				8CCE92171AE48F0F0005C58C /* libicucore.dylib in Frameworks */,
-				8CCE92151AE48F060005C58C /* libc++.dylib in Frameworks */,
-				8CCE92131AE48A230005C58C /* ImageIO.framework in Frameworks */,
-				8CCE92111AE48A1B0005C58C /* GLKit.framework in Frameworks */,
-				8CCE920F1AE48A130005C58C /* CoreText.framework in Frameworks */,
-				8CCE920D1AE489950005C58C /* CoreLocation.framework in Frameworks */,
-				8CCE920B1AE4898C0005C58C /* CoreData.framework in Frameworks */,
-				8CCE92091AE489740005C58C /* AVFoundation.framework in Frameworks */,
 				41E184BA6063B6259B256D04 /* Pods_UltimateUp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -136,7 +91,6 @@
 		8C94DC341AC2715000A6205D = {
 			isa = PBXGroup;
 			children = (
-				8C2CB6811B2AA3DA002425D5 /* GoogleMaps.bundle */,
 				8C94DC3F1AC2715000A6205D /* UltimateUp */,
 				8C94DC551AC2715000A6205D /* UltimateUpTests */,
 				8C94DC3E1AC2715000A6205D /* Products */,
@@ -162,7 +116,6 @@
 				8CEC85BA1B2B57EE00F72D96 /* createGameController.swift */,
 				8C94DC461AC2715000A6205D /* Main.storyboard */,
 				8C94DC401AC2715000A6205D /* Supporting Files */,
-				8C94DC621AC2718100A6205D /* framework */,
 			);
 			path = UltimateUp;
 			sourceTree = "<group>";
@@ -194,48 +147,6 @@
 				8C94DC571AC2715000A6205D /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		8C94DC621AC2718100A6205D /* framework */ = {
-			isa = PBXGroup;
-			children = (
-				8CCE92211AE490650005C58C /* FacebookLogin */,
-				8CCE92201AE48F360005C58C /* GoogleMaps */,
-			);
-			name = framework;
-			sourceTree = "<group>";
-		};
-		8CCE92201AE48F360005C58C /* GoogleMaps */ = {
-			isa = PBXGroup;
-			children = (
-				8CCE92041AE485CA0005C58C /* GoogleMaps.framework */,
-				8CCE92061AE487360005C58C /* GoogleMaps.bundle */,
-				8CCE921E1AE48F2C0005C58C /* SystemConfiguration.framework */,
-				8CCE921C1AE48F250005C58C /* QuartzCore.framework */,
-				8CCE921A1AE48F1E0005C58C /* OpenGLES.framework */,
-				8CCE92181AE48F160005C58C /* libz.dylib */,
-				8CCE92161AE48F0F0005C58C /* libicucore.dylib */,
-				8CCE92141AE48F060005C58C /* libc++.dylib */,
-				8CCE92121AE48A230005C58C /* ImageIO.framework */,
-				8CCE92101AE48A1B0005C58C /* GLKit.framework */,
-				8CCE920E1AE48A130005C58C /* CoreText.framework */,
-				8CCE920C1AE489950005C58C /* CoreLocation.framework */,
-				8CCE920A1AE4898C0005C58C /* CoreData.framework */,
-				8CCE92081AE489740005C58C /* AVFoundation.framework */,
-			);
-			name = GoogleMaps;
-			sourceTree = "<group>";
-		};
-		8CCE92211AE490650005C58C /* FacebookLogin */ = {
-			isa = PBXGroup;
-			children = (
-				8CBAA3591AC6633A00F0DDCD /* FBSDKShareKit.framework */,
-				8CBAA3571AC6633300F0DDCD /* FBSDKMessengerShareKit.framework */,
-				8CBAA3551AC662E500F0DDCD /* FBSDKLoginKit.framework */,
-				8CBAA3531AC662DC00F0DDCD /* FBSDKCoreKit.framework */,
-				8CBAA3511AC662D200F0DDCD /* FBAudienceNetwork.framework */,
-			);
-			name = FacebookLogin;
 			sourceTree = "<group>";
 		};
 		A80CE322E5FEFB55EF9947A3 /* Pods */ = {
@@ -334,7 +245,6 @@
 				8C94DC481AC2715000A6205D /* Main.storyboard in Resources */,
 				8C94DC4D1AC2715000A6205D /* LaunchScreen.xib in Resources */,
 				8C94DC4A1AC2715000A6205D /* Images.xcassets in Resources */,
-				8C2CB6821B2AA3DA002425D5 /* GoogleMaps.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -534,9 +444,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/UltimateUp",
-					"$(PROJECT_DIR)/Framework",
 					"$(PROJECT_DIR)/Pods/GoogleMaps/Frameworks",
-					"$(PROJECT_DIR)/build/Debug-iphoneos/Pods-UltimateUp",
 				);
 				INFOPLIST_FILE = UltimateUp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -557,9 +465,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/UltimateUp",
-					"$(PROJECT_DIR)/Framework",
 					"$(PROJECT_DIR)/Pods/GoogleMaps/Frameworks",
-					"$(PROJECT_DIR)/build/Debug-iphoneos/Pods-UltimateUp",
 				);
 				INFOPLIST_FILE = UltimateUp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -574,10 +480,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -594,10 +497,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = UltimateUpTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.uw.pshfls.$(PRODUCT_NAME:rfc1034identifier)";

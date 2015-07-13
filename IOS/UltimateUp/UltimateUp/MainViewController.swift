@@ -57,7 +57,7 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // pull out a UIViewController from a NavigationController
-        var destination = segue.destinationViewController as! UIViewController
+        var destination = segue.destinationViewController as UIViewController
         if let navControler = destination as? UINavigationController {
             destination = navControler.visibleViewController!
         }
@@ -77,8 +77,7 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
         let currentLocations: [CLLocation]? = locations as? [CLLocation]
         if let current = currentLocations as [CLLocation]! {
             latitude = current[0].coordinate.latitude
-            longitude = current[1].coordinate.longitude
-            
+//            longitude = current[1].coordinate.longitude
         }
     }
     

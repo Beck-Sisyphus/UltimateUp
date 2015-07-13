@@ -5,15 +5,13 @@ use_frameworks!
 
 target 'UltimateUp' do
 
-# pod 'Alamofire', '~> 1.1'
 # pod 'Starscream', :git => "https://github.com/daltoniam/starscream.git", :tag => "0.9.1"
 
-# pod 'FBSDKLoginKit' # can't use framework for this kit
 pod 'FBSDKCoreKit'
-pod 'FBSDKShareKit'
+# pod 'FBSDKShareKit'
 pod 'FBSDKLoginKit'
 pod 'GoogleMaps'
-pod 'Socket.IO-Client-Swift' # Or latest version
+pod 'Socket.IO-Client-Swift', :git => 'https://github.com/socketio/socket.io-client-swift', :branch => 'swift-2' # Or latest version
 
 end
 

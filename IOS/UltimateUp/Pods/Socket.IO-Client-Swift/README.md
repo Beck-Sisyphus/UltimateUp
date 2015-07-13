@@ -15,7 +15,7 @@ socket.on("currentAmount") {data, ack in
             socket.emit("update", ["amount": cur + 2.50])
         }
 
-        ack?("Got your currentAmount", "dude")
+        ack?(["Got your currentAmount", "dude"])
     }
 }
 
@@ -52,9 +52,20 @@ SocketIOClient* socket = [[SocketIOClient alloc] initWithSocketURL:@"localhost:8
 - Can be used from Objective-C
 
 ##Installation
-Requires Swift 1.2/Xcode 6.3
+Requires Swift 2/Xcode 7
 
+If you need Swift 1.2/Xcode 6.3/4 use v2 (Pre-Swift 2 support is no longer maintained)
 If you need Swift 1.1/Xcode 6.2 use v1.5.2. (Pre-Swift 1.2 support is no longer maintained)
+
+Carthage
+-----------------
+Add this line to your `Cartfile`:
+```
+github "socketio/socket.io-client-swift" ~> 2.3.8 # Or latest version
+```
+
+Run `carthage update`.
+
 Manually (iOS 7+)
 -----------------
 1. Copy the SocketIOClientSwift folder into your Xcode project. (Make sure you add the files to your target(s))
@@ -69,7 +80,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 use_frameworks!
 
-pod 'Socket.IO-Client-Swift', '~> 1.3.2' # Or latest version
+pod 'Socket.IO-Client-Swift', '~> 2.3.8' # Or latest version
 ```
 
 Install pods:
@@ -78,10 +89,16 @@ Install pods:
 $ pod install
 ```
 
-Import in your swift file:
+Import the module:
 
+Swift:
 ```swift
 import Socket_IO_Client_Swift
+```
+
+Objective-C:
+```Objective-C
+#import <Socket_IO_Client_Swift/Socket_IO_Client_Swift-Swift.h>
 ```
 
 ##API
@@ -104,6 +121,7 @@ Options
 - `log: Bool` If `true` socket will log debug messages. Default is false.
 - `sessionDelegate: NSURLSessionDelegate` Sets an NSURLSessionDelegate for the underlying engine. Useful if you need to handle self-signed certs. Default is nil.
 - `path: String` - If the server uses a custom path. ex: `"/swift"`. Default is `""`
+- `extraHeaders: [String: String]?` - Adds custom headers to the initial request. Default is nil.
 
 Methods
 -------
