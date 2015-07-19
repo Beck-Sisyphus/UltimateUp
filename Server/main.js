@@ -2,15 +2,16 @@
 var conf = require('./config');
 
 // general dependencies
-var app = require('http').createServer(handler);
-var io = require('socket.io')(app, conf.io);
-var fs = require('fs');
-var r = require('rethinkdbdash')(conf.rethink);
+var app = require('http').createServer(handler);  // http server for debugging
+var io = require('socket.io')(app, conf.io);  // socket.io server
+var fs = require('fs');  // the fs module
+var r = require('rethinkdbdash')(conf.rethink);  // rethinkdb server
 
-// app components
+// initialize each component
 
 var login = require('./login')(conf, r);
 
+// debugging: used to check if server is online
 function handler (req, res) {
   fs.readFile(__dirname + '/index.html',
   function (err, data) {
@@ -24,9 +25,10 @@ function handler (req, res) {
   });
 }
 
-
+// configuring socket.io
 // default socket: /mobi
 io.of('mobi')
+// normal login happens after each connection is established
 .use(login.preauth)
 .on('connection', function (socket) {
   console.info("[mobi] new connection");

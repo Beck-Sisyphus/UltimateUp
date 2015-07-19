@@ -1,4 +1,10 @@
-// Stub, very much a Stub
+// session store - determines if a socket is authenticated
+
+// We are not currently using any session database for this
+// Everything here is Stub, very much a Stub
+
+// In the future, we might add another db like Redis
+// for handling session storage
 
 var verified = new Set();
 

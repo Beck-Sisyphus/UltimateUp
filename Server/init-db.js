@@ -1,3 +1,7 @@
+// This standalone script creates the database, tables and indices
+// for normal server operations.
+// The server runtime does not depend upon this script.
+
 var r = require('rethinkdbdash')();
 
 console.info("Creating database...");
