@@ -10,6 +10,7 @@
 		41E184BA6063B6259B256D04 /* Pods_UltimateUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6E8376595E9D5A26FE06EF /* Pods_UltimateUp.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		8C2CB67C1B2A9BFA002425D5 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C2CB6781B2A9AC7002425D5 /* CoreBluetooth.framework */; };
 		8C2CB67D1B2A9BFF002425D5 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C2CB67A1B2A9AD0002425D5 /* Accelerate.framework */; };
+		8C8C346C1B65AF8C0016DDC3 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8C346B1B65AF8C0016DDC3 /* SettingViewController.swift */; };
 		8C94DC431AC2715000A6205D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C94DC421AC2715000A6205D /* AppDelegate.swift */; };
 		8C94DC451AC2715000A6205D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C94DC441AC2715000A6205D /* MainViewController.swift */; };
 		8C94DC481AC2715000A6205D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C94DC461AC2715000A6205D /* Main.storyboard */; };
@@ -33,6 +34,7 @@
 /* Begin PBXFileReference section */
 		8C2CB6781B2A9AC7002425D5 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		8C2CB67A1B2A9AD0002425D5 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		8C8C346B1B65AF8C0016DDC3 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		8C94DC3D1AC2715000A6205D /* UltimateUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UltimateUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C94DC411AC2715000A6205D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C94DC421AC2715000A6205D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -111,9 +113,8 @@
 		8C94DC3F1AC2715000A6205D /* UltimateUp */ = {
 			isa = PBXGroup;
 			children = (
+				8C8C346B1B65AF8C0016DDC3 /* SettingViewController.swift */,
 				8C94DC441AC2715000A6205D /* MainViewController.swift */,
-				8CBAA34B1AC5FECF00F0DDCD /* SignInViewController.swift */,
-				8CEC85BA1B2B57EE00F72D96 /* createGameController.swift */,
 				8C94DC461AC2715000A6205D /* Main.storyboard */,
 				8C94DC401AC2715000A6205D /* Supporting Files */,
 			);
@@ -123,6 +124,8 @@
 		8C94DC401AC2715000A6205D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8CEC85BA1B2B57EE00F72D96 /* createGameController.swift */,
+				8CBAA34B1AC5FECF00F0DDCD /* SignInViewController.swift */,
 				8C94DC491AC2715000A6205D /* Images.xcassets */,
 				8C94DC4B1AC2715000A6205D /* LaunchScreen.xib */,
 				8C94DC421AC2715000A6205D /* AppDelegate.swift */,
@@ -310,6 +313,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C8C346C1B65AF8C0016DDC3 /* SettingViewController.swift in Sources */,
 				8C94DC451AC2715000A6205D /* MainViewController.swift in Sources */,
 				8C94DC431AC2715000A6205D /* AppDelegate.swift in Sources */,
 				8CBAA34C1AC5FECF00F0DDCD /* SignInViewController.swift in Sources */,

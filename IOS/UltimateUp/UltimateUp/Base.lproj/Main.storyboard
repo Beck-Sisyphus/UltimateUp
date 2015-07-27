@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8121.17" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="aAv-Lf-Qdu">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8121.17" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="WyX-la-1cj">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8101.14"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <mutableArray key="HelveticaNeue.ttc">
-            <string>HelveticaNeue</string>
-        </mutableArray>
-    </customFonts>
     <scenes>
         <!--Navigation Controller-->
         <scene sceneID="Sx3-TW-mZz">
@@ -136,6 +131,31 @@
             </objects>
             <point key="canvasLocation" x="-357" y="-1025"/>
         </scene>
+        <!--Table View Controller-->
+        <scene sceneID="4za-zM-2i2">
+            <objects>
+                <tableViewController id="WyX-la-1cj" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="JLA-IR-rHL">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="bKi-qb-rqn">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bKi-qb-rqn" id="3M6-3c-nfZ">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="WyX-la-1cj" id="ucN-fK-RJG"/>
+                            <outlet property="delegate" destination="WyX-la-1cj" id="ij1-xh-Z7g"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cfc-XT-acx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="426" y="-1025.25"/>
+        </scene>
         <!--Split View Controller-->
         <scene sceneID="0hG-gk-FnV">
             <objects>
@@ -225,9 +245,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="46"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="20" y="118" width="360" height="72"/>
-                                </variation>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H7H-mI-KRU" customClass="FBSDKLoginButton">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -236,7 +253,9 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log in for an ultimate frisbee game" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="mk4-7g-DTA">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="123" id="dgb-Oe-83e"/>
+                                    <constraint firstAttribute="height" constant="123" id="dgb-Oe-83e">
+                                        <variation key="widthClass=compact" constant="63"/>
+                                    </constraint>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -263,7 +282,7 @@
                             <constraint firstItem="jFV-cB-uOP" firstAttribute="top" secondItem="H7H-mI-KRU" secondAttribute="bottom" constant="136" id="BAr-nG-8Wg"/>
                             <constraint firstItem="ko0-ew-8wP" firstAttribute="trailing" secondItem="pom-jj-DJF" secondAttribute="trailingMargin" id="Bn2-6s-BRJ"/>
                             <constraint firstItem="jFV-cB-uOP" firstAttribute="top" secondItem="ko0-ew-8wP" secondAttribute="bottom" constant="448" id="NIS-Ci-rt7">
-                                <variation key="widthClass=compact" constant="410"/>
+                                <variation key="widthClass=compact" constant="339"/>
                             </constraint>
                             <constraint firstItem="H7H-mI-KRU" firstAttribute="top" secondItem="mk4-7g-DTA" secondAttribute="bottom" constant="82" id="TXu-cd-dew"/>
                             <constraint firstItem="mk4-7g-DTA" firstAttribute="leading" secondItem="ko0-ew-8wP" secondAttribute="leading" id="Vt5-NQ-jS3"/>
@@ -271,7 +290,9 @@
                                 <variation key="widthClass=compact" constant="98"/>
                             </constraint>
                             <constraint firstItem="H7H-mI-KRU" firstAttribute="leading" secondItem="mk4-7g-DTA" secondAttribute="trailing" constant="-368" id="kOI-MA-XBI"/>
-                            <constraint firstItem="mk4-7g-DTA" firstAttribute="top" secondItem="ko0-ew-8wP" secondAttribute="bottom" constant="19" id="nGE-Kf-hDS"/>
+                            <constraint firstItem="mk4-7g-DTA" firstAttribute="top" secondItem="ko0-ew-8wP" secondAttribute="bottom" constant="19" id="nGE-Kf-hDS">
+                                <variation key="widthClass=compact" constant="8"/>
+                            </constraint>
                             <constraint firstItem="H7H-mI-KRU" firstAttribute="trailing" secondItem="mk4-7g-DTA" secondAttribute="trailing" id="nfB-Yg-RKU"/>
                         </constraints>
                         <variation key="default">

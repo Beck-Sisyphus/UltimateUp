@@ -18,47 +18,57 @@ class createGameController: UIViewController {
         }
     }
 
-    let socket = SocketIOClient(socketURL: "52.4.253.222/mobi")
-    
-//    struct loginJSON {
-//        var user_id: String!
-//        var fb_id: String!
-//        var fb_token: String!
-//        func simpleDescription() -> String {
-//            return "The \(user_id) has a FB ID of \(fb_id) and FB token of \(fb_token)"
-//        }
-//    }
+    let socket = SocketIOClient(socketURL: "52.4.253.222:mobi")
     
     @IBAction func socket(sender: UIButton) {
-        print("use socket", appendNewline: false)
+        print("use socket", appendNewline: true)
         
-        socket.on("connect") {data, ack in
-            print("socket connected")
-            print(data)
-            print(ack)
-        }
-        
-        socket.emitWithAck("hello world", "Beck") (timeout: 10) { data in
-            print("hello world")
-        }
-        
-        socket.onAny {print("Got event: \($0.event), with items: \($0.items)")}
-        
-//        let loginOne: loginJSON = loginJSON(
-//            user_id: "beck",
-//            fb_id:  FBSDKAccessToken.currentAccessToken().userID,
-//            fb_token: FBSDKAccessToken.currentAccessToken().tokenString)
-//        
-//        socket.emitWithAck("fb_login", loginOne) (timeout: 10) { data in
+//        socket.on("connect") {data, ack in
+//            print("socket connected")
 //            print(data)
+//            print(ack)
 //        }
+//        socket.emitWithAck("connect") (timeout: 3) { data in
+//            print("hello \(data)")
+//        }
+//        
+//        socket.emit("hello", "Beck")
         
-        socket.connect()
+        let loginDic = [
+            "fb_token"  :  FBSDKAccessToken.currentAccessToken().tokenString,
+            "fb_id"     :  FBSDKAccessToken.currentAccessToken().userID,
+            "user_id"   :  "beck"
+            ]
+        
+        socket.emitWithAck("fb_login", loginDic) (timeout: 4) { data in
+            print(data)
+        }
+        
+        socket.emitWithAck("fb_login",
+            "fb_token", FBSDKAccessToken.currentAccessToken().tokenString,
+            "fb_id",    FBSDKAccessToken.currentAccessToken().userID,
+            "user_id",  "beck") (timeout: 4) { print($0) }
+        
+        // I realize that there is no need to do the JSON by myself
+        
+//        do {
+//            let loginJSONData = try NSJSONSerialization.dataWithJSONObject(loginDic, options:NSJSONWritingOptions())
+//            
+//            let loginJSONText = NSString(data: loginJSONData, encoding: NSASCIIStringEncoding)
+//            
+//            socket.emitWithAck("fb_login", loginJSONText!) (timeout: 3) { data in
+//                print(data)
+//            }
+//        } catch let error as NSError {
+//            print(error)
+//        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem()
         navigationItem.leftItemsSupplementBackButton = true
+        socket.onAny {print("Got event: \($0.event), with items: \($0.items)")}
+        socket.connect()
     }
 }

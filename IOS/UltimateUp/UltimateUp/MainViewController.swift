@@ -50,28 +50,11 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     @IBAction func createGame(sender: UIButton) {
-        print("\(latitude)", appendNewline: false)
-        print("\(longitude)", appendNewline: false)
-        performSegueWithIdentifier("createGame", sender: self)
+//        print("\(latitude)", appendNewline: false)
+//        print("\(longitude)", appendNewline: false)
+//         performSegueWithIdentifier("createGame", sender: self)
     }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // pull out a UIViewController from a NavigationController
-        var destination = segue.destinationViewController as UIViewController
-        if let navControler = destination as? UINavigationController {
-            destination = navControler.visibleViewController!
-        }
-        
-        if let vc = destination as? createGameController{
-            if let identifier = segue.identifier {
-                switch identifier {
-                case "createGame": vc.setting = true
-                default: break
-                }
-            }
-        }
-    }
-    
+
     // These two methods get current position
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [AnyObject]) {
         let currentLocations: [CLLocation]? = locations as? [CLLocation]
@@ -114,5 +97,24 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
 }
+
+
+//    No need to explictly preform segue in split view controller
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        // pull out a UIViewController from a NavigationController
+//        var destination = segue.destinationViewController as UIViewController
+//        if let navControler = destination as? UINavigationController {
+//            destination = navControler.visibleViewController!
+//        }
+//
+//        if let vc = destination as? createGameController{
+//            if let identifier = segue.identifier {
+//                switch identifier {
+//                case "createGame": vc.setting = true
+//                default: break
+//                }
+//            }
+//        }
+//    }
 
  
