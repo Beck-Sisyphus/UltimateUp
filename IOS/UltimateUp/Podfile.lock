@@ -17,30 +17,16 @@ PODS:
   - FBSDKLoginKit (4.4.0):
     - FBSDKCoreKit
   - GoogleMaps (1.10.1)
-  - Socket.IO-Client-Swift (2.4.0)
 
 DEPENDENCIES:
   - FBSDKCoreKit
   - FBSDKLoginKit
   - GoogleMaps
-  - Socket.IO-Client-Swift (from `https://github.com/socketio/socket.io-client-swift`,
-    branch `swift-2`)
-
-EXTERNAL SOURCES:
-  Socket.IO-Client-Swift:
-    :branch: swift-2
-    :git: https://github.com/socketio/socket.io-client-swift
-
-CHECKOUT OPTIONS:
-  Socket.IO-Client-Swift:
-    :commit: 7b795fd98972a117c0aa8e4c48bf424e0bb273b9
-    :git: https://github.com/socketio/socket.io-client-swift
 
 SPEC CHECKSUMS:
   Bolts: d176cb1e0012175589e389a9db49b85e27787576
   FBSDKCoreKit: 75bdd75c980e811db218488d99dd93b7740f4474
   FBSDKLoginKit: 02a9254a4c132412fa03577b0d53e936d068a7fb
   GoogleMaps: ebf08677f181d9c2dcdbd1721d206f02beccc9b1
-  Socket.IO-Client-Swift: 4e5372e7122b401d9f6bc931a3c8c7b6edf2205f
 
-COCOAPODS: 0.38.0
+COCOAPODS: 0.38.2

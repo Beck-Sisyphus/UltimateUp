@@ -8,7 +8,7 @@
 
 import UIKit
 import FBSDKLoginKit
-import Socket_IO_Client_Swift
+// import Socket_IO_Client_Swift
 
 class createGameController: UIViewController {
     // Setting for segue
@@ -18,7 +18,7 @@ class createGameController: UIViewController {
         }
     }
 
-    let socket = SocketIOClient(socketURL: "52.4.253.222:mobi")
+//    let socket = SocketIOClient(socketURL: "52.4.253.222:mobi")
     
     @IBAction func socket(sender: UIButton) {
         print("use socket", appendNewline: true)
@@ -34,41 +34,29 @@ class createGameController: UIViewController {
 //        
 //        socket.emit("hello", "Beck")
         
-        let loginDic = [
-            "fb_token"  :  FBSDKAccessToken.currentAccessToken().tokenString,
-            "fb_id"     :  FBSDKAccessToken.currentAccessToken().userID,
-            "user_id"   :  "beck"
-            ]
+//        let loginDic = [
+//            "fb_token"  :  FBSDKAccessToken.currentAccessToken().tokenString,
+//            "fb_id"     :  FBSDKAccessToken.currentAccessToken().userID,
+//            "user_id"   :  "beck"
+//            ]
         
-        socket.emitWithAck("fb_login", loginDic) (timeout: 4) { data in
-            print(data)
-        }
-        
-        socket.emitWithAck("fb_login",
-            "fb_token", FBSDKAccessToken.currentAccessToken().tokenString,
-            "fb_id",    FBSDKAccessToken.currentAccessToken().userID,
-            "user_id",  "beck") (timeout: 4) { print($0) }
+//        socket.emitWithAck("fb_login", loginDic) (timeout: 4) { data in
+//            print(data)
+//        }
+//        
+//        socket.emitWithAck("fb_login",
+//            "fb_token", FBSDKAccessToken.currentAccessToken().tokenString,
+//            "fb_id",    FBSDKAccessToken.currentAccessToken().userID,
+//            "user_id",  "beck") (timeout: 4) { print($0) }
         
         // I realize that there is no need to do the JSON by myself
-        
-//        do {
-//            let loginJSONData = try NSJSONSerialization.dataWithJSONObject(loginDic, options:NSJSONWritingOptions())
-//            
-//            let loginJSONText = NSString(data: loginJSONData, encoding: NSASCIIStringEncoding)
-//            
-//            socket.emitWithAck("fb_login", loginJSONText!) (timeout: 3) { data in
-//                print(data)
-//            }
-//        } catch let error as NSError {
-//            print(error)
-//        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem()
         navigationItem.leftItemsSupplementBackButton = true
-        socket.onAny {print("Got event: \($0.event), with items: \($0.items)")}
-        socket.connect()
+//        socket.onAny {print("Got event: \($0.event), with items: \($0.items)")}
+//        socket.connect()
     }
 }

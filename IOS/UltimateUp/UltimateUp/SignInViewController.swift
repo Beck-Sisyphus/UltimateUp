@@ -72,10 +72,6 @@ class SignInViewController: UIViewController, FBSDKLoginButtonDelegate, UISplitV
             }
             else
             {
-//                print("fetched user: \(result)", appendNewline: false)
-//                let userName : NSString = result.valueForKey("name") as! NSString
-//                print("User Name is: \(userName)", appendNewline: false)
-                // Call for next view, the Main View
                 self.performSegueWithIdentifier("AfterSignIn", sender: self)
             }
         })
