@@ -20,7 +20,12 @@
       "locator": "./engine/cordova-crosswalk-engine-c0.6.2"
     },
     "plugin.google.maps",
-    "com.knowledgecode.cordova.websocket",
-    "com.phonegap.plugins.facebookconnect"
+    "com.phonegap.plugins.facebookconnect",
+    "android.support.v4",
+    "plugin.http.request",
+    "cordova-plugin-geolocation",
+    "com.google.playservices",
+    "cordova-plugin-googleplayservices",
+    "cordova-plugin-android-support-v4"
   ]
 }

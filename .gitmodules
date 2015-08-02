@@ -1,0 +1,3 @@
+[submodule "phonegap-facebook-plugin"]
+	path = phonegap-facebook-plugin
+	url = https://github.com/Wizcorp/phonegap-facebook-plugin

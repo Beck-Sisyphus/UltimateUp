@@ -15,13 +15,6 @@ module.exports = [
         ]
     },
     {
-        "file": "plugins/com.knowledgecode.cordova.websocket/www/websocket.js",
-        "id": "com.knowledgecode.cordova.websocket.websocket",
-        "clobbers": [
-            "WebSocket"
-        ]
-    },
-    {
         "file": "plugins/plugin.http.request/www/http-request.js",
         "id": "plugin.http.request.phonegap-http-requst",
         "clobbers": [
@@ -34,8 +27,7 @@ module.exports.metadata =
 {
     "plugin.google.maps": "1.2.5",
     "com.phonegap.plugins.facebookconnect": "0.11.0",
-    "org.apache.cordova.geolocation": "0.3.12",
-    "com.knowledgecode.cordova.websocket": "0.8.3",
+    "cordova-plugin-geolocation": "1.0.1",
     "plugin.http.request": "1.0.4",
     "com.google.playservices": "21.0.0",
     "android.support.v4": "21.0.1"

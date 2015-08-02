@@ -21,7 +21,7 @@
 			shareLink: function() {
 				this.showView();
 				var self = this;
-				facebookConnectPlugin.showDialog( 
+				facebookConnectPlugin.showDialog(
 				{
 					method: 'share',
 					href: 'https://developers.facebook.com/docs/',

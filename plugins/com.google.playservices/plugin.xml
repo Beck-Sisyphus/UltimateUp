@@ -19,7 +19,6 @@
     </config-file>
 
     <source-file src="version.xml" target-dir="res/values" />
-    <source-file src="libs/google-play-services_lib/libs/google-play-services.jar" target-dir="libs" />
-    <source-file src="libs/google-play-services_lib/libs/google-play-services.jar.properties" target-dir="libs" />
+    <framework src="libs/google-play-services_lib" custom="true" />
   </platform>
 </plugin>

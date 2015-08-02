@@ -21,9 +21,6 @@
     <access origin="https://api.facebook.com" />
     <access origin="https://*.fbcdn.net" />
     <access origin="https://*.akamaihd.net" />
-    <feature name="WebSocket">
-        <param name="android-package" value="com.knowledgecode.cordova.websocket.WebSocket" />
-    </feature>
     <name>UltimateUp</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.

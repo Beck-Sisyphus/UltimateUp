@@ -20,8 +20,9 @@ function toJSON(error, text) {
 }
 
 function onDeviceReady() {
-    console.info('here');
     // initialize map view
+
+    // U.io = new ServerIO("ws://idk.com/ws");
 
     U.peerView.$mount(document.getElementById('peer-view'));
 

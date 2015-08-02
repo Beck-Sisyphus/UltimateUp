@@ -9,21 +9,25 @@
         "source": {
             "type": "registry",
             "id": "plugin.http.request"
-        }
+        },
+        "is_top_level": true,
+        "variables": {}
     },
     "com.google.playservices": {
         "source": {
-            "type": "git",
-            "url": "https://github.com/wf9a5m75/google-play-services",
-            "subdir": ".",
-            "ref": "master"
-        }
+            "type": "registry",
+            "id": "com.google.playservices"
+        },
+        "is_top_level": true,
+        "variables": {}
     },
     "android.support.v4": {
         "source": {
             "type": "registry",
             "id": "android.support.v4"
-        }
+        },
+        "is_top_level": true,
+        "variables": {}
     },
     "com.phonegap.plugins.facebookconnect": {
         "source": {
@@ -31,16 +35,28 @@
             "id": "com.phonegap.plugins.facebookconnect"
         }
     },
-    "org.apache.cordova.geolocation": {
+    "cordova-plugin-geolocation": {
         "source": {
             "type": "registry",
-            "id": "org.apache.cordova.geolocation"
-        }
+            "id": "cordova-plugin-geolocation"
+        },
+        "is_top_level": true,
+        "variables": {}
     },
-    "com.knowledgecode.cordova.websocket": {
+    "cordova-plugin-googleplayservices": {
         "source": {
             "type": "registry",
-            "id": "com.knowledgecode.cordova.websocket"
-        }
+            "id": "cordova-plugin-googleplayservices"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-android-support-v4": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-android-support-v4"
+        },
+        "is_top_level": true,
+        "variables": {}
     }
 }

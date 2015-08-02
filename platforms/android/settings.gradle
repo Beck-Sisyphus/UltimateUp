@@ -1,4 +1,4 @@
 // GENERATED FILE - DO NOT EDIT
 include ":"
+include ":com.phonegap.plugins.facebookconnect:android-FacebookLib"
 include ":CordovaLib"
-include ":org.crosswalk.engine:ftest906225-xwalk_core_library"

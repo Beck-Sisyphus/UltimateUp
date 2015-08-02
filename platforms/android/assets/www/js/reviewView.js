@@ -8,7 +8,7 @@ var reviewView = new Vue({
 	methods: {
 		expand: function() {
 			this.peers.push({
-				name: "ftwtw",
+				name: "what did say?",
 				avatar: "",
 				skill: 3,
 				hasFrisbe: true,
