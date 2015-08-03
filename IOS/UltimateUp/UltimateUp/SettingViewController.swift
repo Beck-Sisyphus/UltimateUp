@@ -10,13 +10,13 @@ import UIKit
 import FBSDKCoreKit
 
 class SettingViewController: UITableViewController {
+    @IBOutlet weak var ProfileCell: UITableViewCell!
+    
     var userName: String? = "" {
         didSet {
             updateUI()
         }
     }
-    
-    @IBOutlet weak var ProfileCell: UITableViewCell!
     
     // MARK: View Controller Lifecyle
     override func viewDidLoad() {
@@ -54,15 +54,5 @@ class SettingViewController: UITableViewController {
         ProfileCell.addSubview(FBPicture)
         tableView.reloadData()
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
