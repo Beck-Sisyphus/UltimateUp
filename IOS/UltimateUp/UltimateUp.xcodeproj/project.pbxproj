@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		41E184BA6063B6259B256D04 /* Pods_UltimateUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6E8376595E9D5A26FE06EF /* Pods_UltimateUp.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		8C1C403E1BA2603C00B0F498 /* levelProclaimViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1C403D1BA2603C00B0F498 /* levelProclaimViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		8C2CB67C1B2A9BFA002425D5 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C2CB6781B2A9AC7002425D5 /* CoreBluetooth.framework */; };
 		8C2CB67D1B2A9BFF002425D5 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C2CB67A1B2A9AD0002425D5 /* Accelerate.framework */; };
 		8C8C346E1B65B7810016DDC3 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8C346D1B65B7810016DDC3 /* SettingViewController.swift */; };
@@ -32,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8C1C403D1BA2603C00B0F498 /* levelProclaimViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = levelProclaimViewController.swift; sourceTree = "<group>"; };
 		8C2CB6781B2A9AC7002425D5 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		8C2CB67A1B2A9AD0002425D5 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		8C8C346D1B65B7810016DDC3 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +49,8 @@
 		8C94DC581AC2715000A6205D /* UltimateUpTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltimateUpTests.swift; sourceTree = "<group>"; };
 		8C94DC671AC2732E00A6205D /* UltimateUp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UltimateUp-Bridging-Header.h"; sourceTree = "<group>"; };
 		8CBAA34B1AC5FECF00F0DDCD /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		8CE9B4781B9F80F000927AA2 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		8CE9B4791B9F80F000927AA2 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		8CEC85B31B2B3D9900F72D96 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "Pods/../build/Debug-iphoneos/Pods-UltimateUp/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
 		8CEC85B51B2B407000F72D96 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "Pods/../build/Debug-iphoneos/Pods-UltimateUp/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
 		8CEC85B71B2B409100F72D96 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "Pods/../build/Debug-iphoneos/Pods-UltimateUp/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
@@ -113,7 +117,10 @@
 		8C94DC3F1AC2715000A6205D /* UltimateUp */ = {
 			isa = PBXGroup;
 			children = (
-				8C8C346D1B65B7810016DDC3 /* SettingViewController.swift */,
+				8C94DC441AC2715000A6205D /* MainViewController.swift */,
+				8CBAA34B1AC5FECF00F0DDCD /* SignInViewController.swift */,
+				8CEC85BA1B2B57EE00F72D96 /* createGameController.swift */,
+				8C1C403D1BA2603C00B0F498 /* levelProclaimViewController.swift */,
 				8C94DC461AC2715000A6205D /* Main.storyboard */,
 				8C94DC401AC2715000A6205D /* Supporting Files */,
 			);
@@ -123,9 +130,7 @@
 		8C94DC401AC2715000A6205D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				8C94DC441AC2715000A6205D /* MainViewController.swift */,
-				8CEC85BA1B2B57EE00F72D96 /* createGameController.swift */,
-				8CBAA34B1AC5FECF00F0DDCD /* SignInViewController.swift */,
+				8C8C346D1B65B7810016DDC3 /* SettingViewController.swift */,
 				8C94DC491AC2715000A6205D /* Images.xcassets */,
 				8C94DC4B1AC2715000A6205D /* LaunchScreen.xib */,
 				8C94DC421AC2715000A6205D /* AppDelegate.swift */,
@@ -293,7 +298,7 @@
 		};
 		CF21CE41B4724FA46DA43E45 /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 8;
 			files = (
 			);
 			inputPaths = (
@@ -301,7 +306,7 @@
 			name = "Embed Pods Frameworks";
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UltimateUp/Pods-UltimateUp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
@@ -317,6 +322,7 @@
 				8C94DC451AC2715000A6205D /* MainViewController.swift in Sources */,
 				8C94DC431AC2715000A6205D /* AppDelegate.swift in Sources */,
 				8CBAA34C1AC5FECF00F0DDCD /* SignInViewController.swift in Sources */,
+				8C1C403E1BA2603C00B0F498 /* levelProclaimViewController.swift in Sources */,
 				8CEC85BB1B2B57EE00F72D96 /* createGameController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -344,6 +350,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				8C94DC471AC2715000A6205D /* Base */,
+				8CE9B4781B9F80F000927AA2 /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -352,6 +359,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				8C94DC4C1AC2715000A6205D /* Base */,
+				8CE9B4791B9F80F000927AA2 /* zh-Hans */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
@@ -394,7 +402,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
@@ -431,7 +439,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				SDKROOT = iphoneos;

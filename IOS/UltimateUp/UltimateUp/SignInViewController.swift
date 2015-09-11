@@ -10,24 +10,31 @@ import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
 
-class SignInViewController: UIViewController, FBSDKLoginButtonDelegate, UISplitViewControllerDelegate {
+struct Constants {
+    struct Notification {
+        static let Name = "is Sign In Name"
+        static let Key  = "is Sign In Key"
+    }
+}
+
+class SignInViewController: UIViewController, FBSDKLoginButtonDelegate {
+
 
     
-    // The Facebook login part of the code
+    // MARK: Facebook Login
 
     @IBOutlet var loginButton: FBSDKLoginButton!
+    let center = NSNotificationCenter.defaultCenter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Allow the master view as the first view
-        splitViewController?.delegate = self
         // Do any additional setup after loading the view, typically from a nib.
         if (FBSDKAccessToken.currentAccessToken() != nil) {
             loginButton.readPermissions = ["public_profile", "user_education_history"]
             loginButton.delegate = self
             returnUserData()
         }
-    }
+    } 
     
     override func viewWillAppear(animated: Bool) {
         super.viewDidAppear(animated)
@@ -37,7 +44,7 @@ class SignInViewController: UIViewController, FBSDKLoginButtonDelegate, UISplitV
     
     // default function for LoginButton delegate
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
-        print("User Logged In", appendNewline: false)
+        print("User Logged In", terminator: "")
         
         if ((error) != nil)
         {
@@ -47,6 +54,11 @@ class SignInViewController: UIViewController, FBSDKLoginButtonDelegate, UISplitV
             // Handle cancellations
         }
         else {
+            // Post a notification that it is sign in
+            
+            let notification = NSNotification(name: Constants.Notification.Name, object: self, userInfo: [Constants.Notification.Key: true])
+            center.postNotification(notification)
+            
             // If you ask for multiple permissions at once, you
             // should check if specific permissions missing
             if result.grantedPermissions.contains("public_profile")
@@ -57,33 +69,33 @@ class SignInViewController: UIViewController, FBSDKLoginButtonDelegate, UISplitV
         }
     }
     
-    func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
-        print("User Logged Out", appendNewline: false)
-    }
-    
     func returnUserData()
     {
-        let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: nil)
-        graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
+        let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me",
+            parameters: ["fields": "email, friends"])
+        graphRequest.startWithCompletionHandler{ connection, result, error in
             
             if ((error) != nil)
             {
-                print("Error: \(error)", appendNewline: false)
+                print("Error: \(error)", terminator: "")
             }
             else
             {
                 self.performSegueWithIdentifier("AfterSignIn", sender: self)
             }
-        })
-    }
-    
-    // Allow the master view becomes the first screen
-    func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController: UIViewController, ontoPrimaryViewController primaryViewController: UIViewController) -> Bool {
-        return true
+        }
     }
     
     
-    // The view navigation part of the code
+    // MARK: Facebook logout
+    func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
+        print("User Logged Out", terminator:"")
+        let notification = NSNotification(name: Constants.Notification.Name, object: self, userInfo: [Constants.Notification.Key: false])
+        center.postNotification(notification)
+    }
+    
+
+    // MARK: Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // pull out a UIViewController from a NavigationController
         var destination = segue.destinationViewController as UIViewController
@@ -91,10 +103,10 @@ class SignInViewController: UIViewController, FBSDKLoginButtonDelegate, UISplitV
             destination = navControler.visibleViewController!
         }
         
-        if let vc = destination as? MainViewController{
+        if let vc = destination as? levelProclaimViewController{
             if let identifier = segue.identifier {
                 switch identifier {
-                case "AfterSignIn": vc.isSignIn = true
+                case "AfterSignIn": break // vc.isSignIn = true
                 default: break
                 }
             }

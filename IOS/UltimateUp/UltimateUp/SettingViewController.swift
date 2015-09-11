@@ -28,7 +28,7 @@ class SettingViewController: UITableViewController {
 
                 if ((error) != nil)
                 {
-                    print("Error: \(error)", appendNewline: true)
+                    print("Error: \(error)", terminator: "\n")
                 }
                 else
                 {

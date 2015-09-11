@@ -1,0 +1,51 @@
+
+/* Class = "UIBarButtonItem"; title = " U  "; ObjectID = "0UA-U6-9nD"; */
+"0UA-U6-9nD.title" = " U  ";
+
+/* Class = "UILabel"; text = "Waiting for game"; ObjectID = "2aW-af-men"; */
+"2aW-af-men.text" = "Waiting for game";
+
+/* Class = "UILabel"; text = "Have Disk"; ObjectID = "2rf-Dx-LwG"; */
+"2rf-Dx-LwG.text" = "Have Disk";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "4Pz-Qd-fzY"; */
+"4Pz-Qd-fzY.text" = "Title";
+
+/* Class = "UIButton"; normalTitle = "Socket IO Button"; ObjectID = "7Lx-lh-gex"; */
+"7Lx-lh-gex.normalTitle" = "Socket IO Button";
+
+/* Class = "UILabel"; text = "Setting"; ObjectID = "AlR-ps-j94"; */
+"AlR-ps-j94.text" = "Setting";
+
+/* Class = "UIButton"; normalTitle = "Create Game"; ObjectID = "OWa-nZ-yp4"; */
+"OWa-nZ-yp4.normalTitle" = "Create Game";
+
+/* Class = "UIViewController"; title = "SignIn View Controller"; ObjectID = "WtM-Yk-o9M"; */
+"WtM-Yk-o9M.title" = "SignIn View Controller";
+
+/* Class = "UILabel"; text = "Notifications"; ObjectID = "ZIG-Hd-cCK"; */
+"ZIG-Hd-cCK.text" = "Notifications";
+
+/* Class = "UILabel"; text = "Cleats"; ObjectID = "ZyU-qp-ujW"; */
+"ZyU-qp-ujW.text" = "Cleats";
+
+/* Class = "UILabel"; text = "Friends"; ObjectID = "a3O-wh-fXD"; */
+"a3O-wh-fXD.text" = "Friends";
+
+/* Class = "UILabel"; text = "Disks"; ObjectID = "afW-pD-H4z"; */
+"afW-pD-H4z.text" = "Disks";
+
+/* Class = "UILabel"; text = "Level"; ObjectID = "hAs-tK-O3n"; */
+"hAs-tK-O3n.text" = "Level";
+
+/* Class = "UILabel"; text = "Have Cleats"; ObjectID = "iUD-Kg-fpz"; */
+"iUD-Kg-fpz.text" = "Have Cleats";
+
+/* Class = "UILabel"; text = "UltimateUp"; ObjectID = "ko0-ew-8wP"; */
+"ko0-ew-8wP.text" = "UltimateUp";
+
+/* Class = "UILabel"; text = "History"; ObjectID = "lgJ-r3-F7g"; */
+"lgJ-r3-F7g.text" = "History";
+
+/* Class = "UILabel"; text = "Log in for an ultimate frisbee game"; ObjectID = "mk4-7g-DTA"; */
+"mk4-7g-DTA.text" = "Log in for an ultimate frisbee game";

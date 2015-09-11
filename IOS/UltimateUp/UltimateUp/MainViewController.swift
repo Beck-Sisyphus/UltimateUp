@@ -9,23 +9,21 @@
 import UIKit
 import CoreLocation
 
-class MainViewController: UIViewController, CLLocationManagerDelegate {
-    // For two view transaction
-    var isSignIn: Bool = false {
-        didSet {
-            title = "\(isSignIn)"
-        }
-    }
-    
+class MainViewController: UIViewController, CLLocationManagerDelegate, UISplitViewControllerDelegate {
+
+    // MARK: Google Map
     private var desiredAccuracy: CLLocationAccuracy = kCLLocationAccuracyNearestTenMeters
     private var latitude: CLLocationDegrees = 47.6550
     private var longitude:CLLocationDegrees = 122.3080
     private let locationManager = CLLocationManager()
+    private var isSignIn = false
     
-
     @IBOutlet var GoogleMap: GMSMapView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Allow the master view as the first view
+        splitViewController?.delegate = self
+        
         locationManager.delegate = self
         locationManager.desiredAccuracy = self.desiredAccuracy
         
@@ -47,6 +45,16 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
         marker.title = "Sydney"
         marker.snippet = "Australia"
         marker.map = mapView
+        
+        // MARK: Global Notification
+        let center = NSNotificationCenter.defaultCenter()
+        let queue  = NSOperationQueue.mainQueue()
+        center.addObserverForName(Constants.Notification.Name, object: nil, queue: queue)
+        { notification in
+            if let isSignIn = notification.userInfo?[Constants.Notification.Key] as? Bool {
+                self.isSignIn = isSignIn
+            }
+        }
     }
     
     @IBAction func createGame(sender: UIButton) {
@@ -56,14 +64,14 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
     }
 
     // These two methods get current position
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [AnyObject]) {
-        let currentLocations: [CLLocation]? = locations as? [CLLocation]
-        if let current = currentLocations as [CLLocation]! {
-            latitude = current[0].coordinate.latitude
-//            longitude = current[1].coordinate.longitude
-        }
-    }
-    
+//    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [AnyObject]) {
+//        let currentLocations: [CLLocation]? = locations as? [CLLocation]
+//        if let current = currentLocations as [CLLocation]! {
+//            latitude = current[0].coordinate.latitude
+////            longitude = current[1].coordinate.longitude
+//        }
+//    }
+//    
     func locationManager(manager: CLLocationManager,
         didChangeAuthorizationStatus status: CLAuthorizationStatus)
     {
@@ -96,25 +104,40 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
             self.presentViewController(alertController, animated: true, completion: nil)
         }
     }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        let center = NSNotificationCenter.defaultCenter()
+        center.removeObserver(self)
+    }
+    
+    // MARK: Let master view comes at first screen
+    func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController: UIViewController, ontoPrimaryViewController primaryViewController: UIViewController) -> Bool {
+        return true
+    }
+    
+    // MARK: Segue
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // pull out a UIViewController from a NavigationController
+        var destination = segue.destinationViewController as UIViewController
+        if let navControler = destination as? UINavigationController {
+            destination = navControler.visibleViewController!
+        }
+        if let _ = destination as? SignInViewController {
+            if let identifier = segue.identifier {
+                switch identifier {
+                case "createGame": break
+                default: break
+                }
+            }
+        }
+//        else if let _ = destination as? createGameController {
+//            
+//        }
+    }
 }
 
 
-//    No need to explictly preform segue in split view controller
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        // pull out a UIViewController from a NavigationController
-//        var destination = segue.destinationViewController as UIViewController
-//        if let navControler = destination as? UINavigationController {
-//            destination = navControler.visibleViewController!
-//        }
-//
-//        if let vc = destination as? createGameController{
-//            if let identifier = segue.identifier {
-//                switch identifier {
-//                case "createGame": vc.setting = true
-//                default: break
-//                }
-//            }
-//        }
-//    }
+
 
  
