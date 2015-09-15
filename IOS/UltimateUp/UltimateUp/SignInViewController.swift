@@ -30,7 +30,7 @@ class SignInViewController: UIViewController, FBSDKLoginButtonDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         if (FBSDKAccessToken.currentAccessToken() != nil) {
-            loginButton.readPermissions = ["public_profile", "user_education_history"]
+            loginButton.readPermissions = ["public_profile", "user_friends", "user_education_history", "user_actions.fitness"]
             loginButton.delegate = self
             returnUserData()
         }
@@ -77,10 +77,12 @@ class SignInViewController: UIViewController, FBSDKLoginButtonDelegate {
             
             if ((error) != nil)
             {
-                print("Error: \(error)", terminator: "")
+                print("Error: \(error)", terminator: "\n")
             }
             else
             {
+                print("Connection is: \(connection)", terminator: "\n")
+                print("Result is: \(result)", terminator: "\n")
                 self.performSegueWithIdentifier("AfterSignIn", sender: self)
             }
         }
@@ -102,9 +104,8 @@ class SignInViewController: UIViewController, FBSDKLoginButtonDelegate {
         if let navControler = destination as? UINavigationController {
             destination = navControler.visibleViewController!
         }
-        
-        if let vc = destination as? levelProclaimViewController{
-            if let identifier = segue.identifier {
+        if let identifier = segue.identifier {
+            if let _ = destination as? UITableViewController{
                 switch identifier {
                 case "AfterSignIn": break // vc.isSignIn = true
                 default: break

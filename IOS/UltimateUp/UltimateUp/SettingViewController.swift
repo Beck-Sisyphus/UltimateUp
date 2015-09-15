@@ -10,7 +10,12 @@ import UIKit
 import FBSDKCoreKit
 
 class SettingViewController: UITableViewController {
-    @IBOutlet weak var ProfileCell: UITableViewCell!
+
+    @IBOutlet weak var facebookAvator: UIView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var levelLabel: UILabel!
+
+
     
     var userName: String? = "" {
         didSet {
@@ -23,7 +28,7 @@ class SettingViewController: UITableViewController {
         super.viewDidLoad()
         
         if (FBSDKAccessToken.currentAccessToken().hasGranted("public_profile")) {
-            let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: nil)
+            let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields":""])
             graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
 
                 if ((error) != nil)
@@ -38,20 +43,14 @@ class SettingViewController: UITableViewController {
             })
         }
     }
-    //                dispatch_async(dispatch_get_main_queue()) { () -> Void in
-    //                }
     
     func updateUI() {
-        let FBNameLabel = UILabel(frame: CGRectMake(140, 50, 120, 20))
-        FBNameLabel.tag = 1
-        FBNameLabel.font = UIFont.systemFontOfSize(18)
-        FBNameLabel.textAlignment = NSTextAlignment.Left
-        FBNameLabel.textColor = UIColor.blackColor()
-        FBNameLabel.text = self.userName
-        ProfileCell.addSubview(FBNameLabel)
-        
-        let FBPicture = FBSDKProfilePictureView(frame: CGRectMake(0, 0, 120, 120))
-        ProfileCell.addSubview(FBPicture)
+        nameLabel.text = self.userName
+        levelLabel.text = "Need to be implement"
+        dispatch_async(dispatch_get_main_queue()) {
+            let FBPicture = FBSDKProfilePictureView(frame: CGRectMake(0, 0, 120, 120))
+            self.facebookAvator = FBPicture
+        }
         tableView.reloadData()
     }
 

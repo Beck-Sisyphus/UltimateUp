@@ -49,8 +49,11 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, UISplitVi
         // MARK: Global Notification
         let center = NSNotificationCenter.defaultCenter()
         let queue  = NSOperationQueue.mainQueue()
-        center.addObserverForName(Constants.Notification.Name, object: nil, queue: queue)
+        center.addObserverForName(Constants.Notification.Name, object: nil
+//            UIApplication.sharedApplication().SignInViewController?
+            , queue: queue)
         { notification in
+            print("Recieve notification from sign in view controller", terminator: "\n")
             if let isSignIn = notification.userInfo?[Constants.Notification.Key] as? Bool {
                 self.isSignIn = isSignIn
             }
@@ -60,7 +63,12 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, UISplitVi
     @IBAction func createGame(sender: UIButton) {
 //        print("\(latitude)", appendNewline: false)
 //        print("\(longitude)", appendNewline: false)
-//         performSegueWithIdentifier("createGame", sender: self)
+        if isSignIn {
+            performSegueWithIdentifier("afterSignIn", sender: self)
+        }
+        else {
+            performSegueWithIdentifier("beforeSignIn", sender: self)
+        }
     }
 
     // These two methods get current position
@@ -117,24 +125,26 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, UISplitVi
     }
     
     // MARK: Segue
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // pull out a UIViewController from a NavigationController
-        var destination = segue.destinationViewController as UIViewController
-        if let navControler = destination as? UINavigationController {
-            destination = navControler.visibleViewController!
-        }
-        if let _ = destination as? SignInViewController {
-            if let identifier = segue.identifier {
-                switch identifier {
-                case "createGame": break
-                default: break
-                }
-            }
-        }
-//        else if let _ = destination as? createGameController {
-//            
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        // pull out a UIViewController from a NavigationController
+//        var destination = segue.destinationViewController as UIViewController
+//        if let navControler = destination as? UINavigationController {
+//            destination = navControler.visibleViewController!
 //        }
-    }
+//        if let identifier = segue.identifier {
+//            if identifier == "beforeSignIn" {
+//                if let _ = destination as? SignInViewController {
+//                    
+//                }
+//            }
+//            else if identifier == "afterSignIn" {
+//                if let _ = destination as? createGameController {
+//                    
+//                }
+//            }
+//        }
+//
+//    }
 }
 
 

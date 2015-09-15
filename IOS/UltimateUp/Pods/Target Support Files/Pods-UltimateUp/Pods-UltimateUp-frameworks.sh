@@ -85,11 +85,9 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-UltimateUp/Bolts.framework"
   install_framework "Pods-UltimateUp/FBSDKCoreKit.framework"
   install_framework "Pods-UltimateUp/FBSDKLoginKit.framework"
-  install_framework "Pods-UltimateUp/Socket_IO_Client_Swift.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-UltimateUp/Bolts.framework"
   install_framework "Pods-UltimateUp/FBSDKCoreKit.framework"
   install_framework "Pods-UltimateUp/FBSDKLoginKit.framework"
-  install_framework "Pods-UltimateUp/Socket_IO_Client_Swift.framework"
 fi

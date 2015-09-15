@@ -5,42 +5,28 @@ PODS:
   - Bolts/AppLinks (1.2.2):
     - Bolts/Tasks
   - Bolts/Tasks (1.2.2)
-  - FBSDKCoreKit (4.5.1):
+  - FBSDKCoreKit (4.6.0):
     - Bolts (~> 1.1)
-    - FBSDKCoreKit/arc (= 4.5.1)
-    - FBSDKCoreKit/no-arc (= 4.5.1)
-  - FBSDKCoreKit/arc (4.5.1):
+    - FBSDKCoreKit/arc (= 4.6.0)
+    - FBSDKCoreKit/no-arc (= 4.6.0)
+  - FBSDKCoreKit/arc (4.6.0):
     - Bolts (~> 1.1)
-  - FBSDKCoreKit/no-arc (4.5.1):
+  - FBSDKCoreKit/no-arc (4.6.0):
     - Bolts (~> 1.1)
     - FBSDKCoreKit/arc
-  - FBSDKLoginKit (4.5.1):
+  - FBSDKLoginKit (4.6.0):
     - FBSDKCoreKit
   - GoogleMaps (1.10.2)
-  - Socket.IO-Client-Swift (2.4.5)
 
 DEPENDENCIES:
   - FBSDKCoreKit
   - FBSDKLoginKit
   - GoogleMaps
-  - Socket.IO-Client-Swift (from `https://github.com/socketio/socket.io-client-swift.git`,
-    branch `swift-2`)
-
-EXTERNAL SOURCES:
-  Socket.IO-Client-Swift:
-    :branch: swift-2
-    :git: https://github.com/socketio/socket.io-client-swift.git
-
-CHECKOUT OPTIONS:
-  Socket.IO-Client-Swift:
-    :commit: 259e543ad58cd1b1e89e85a884700c9eb5b966f0
-    :git: https://github.com/socketio/socket.io-client-swift.git
 
 SPEC CHECKSUMS:
   Bolts: 20a2bd788273360cb1e31530dc19b8544eef2544
-  FBSDKCoreKit: f335eaf6865e1e1597dee1debfb533045500da47
-  FBSDKLoginKit: 225cc9a388a92916ee3f3bb14422017b6e44b65b
+  FBSDKCoreKit: 9954492d90c5fd65ae831395697a1660360d61f1
+  FBSDKLoginKit: 3d07febbfa884b9878cacba54f705bb41f07d4b6
   GoogleMaps: 5c92e599b07b0a2a9b367c5dd128edc629bddfea
-  Socket.IO-Client-Swift: 461a98fde2b27b61f5c833889a577d0824bd5ee4
 
 COCOAPODS: 0.39.0.beta.4

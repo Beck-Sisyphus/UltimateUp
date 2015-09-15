@@ -16,15 +16,24 @@
 // IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 // CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-@protocol FBSDKURLOpening <NSObject>
+#import "FBSDKContainerViewController.h"
 
-// Implementations should make sure they can handle nil parameters
-// which is possible in SafariViewController.
-- (BOOL)application:(UIApplication *)application
-            openURL:(NSURL *)url
-  sourceApplication:(NSString *)sourceApplication
-         annotation:(id)annotation;
+@implementation FBSDKContainerViewController
 
-- (void)applicationDidBecomeActive:(UIApplication *)application;
+- (void)viewDidDisappear:(BOOL)animated
+{
+  [super viewDidDisappear:animated];
+  if ([self.delegate respondsToSelector:@selector(viewControllerDidDisappear:animated:)]) {
+    [self.delegate viewControllerDidDisappear:self animated:animated];
+  }
+}
+
+- (void)displayChildController:(UIViewController *)childController
+{
+  [self addChildViewController:childController];
+  childController.view.frame = self.view.frame;
+  [self.view addSubview:childController.view];
+  [childController didMoveToParentViewController:self];
+}
 
 @end

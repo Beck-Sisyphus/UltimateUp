@@ -16,15 +16,10 @@
 // IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 // CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-@protocol FBSDKURLOpening <NSObject>
+#import <Foundation/Foundation.h>
 
-// Implementations should make sure they can handle nil parameters
-// which is possible in SafariViewController.
-- (BOOL)application:(UIApplication *)application
-            openURL:(NSURL *)url
-  sourceApplication:(NSString *)sourceApplication
-         annotation:(id)annotation;
+extern NSString *const FBSDKDialogConfigurationNameDefault;
+extern NSString *const FBSDKDialogConfigurationNameSharing;
 
-- (void)applicationDidBecomeActive:(UIApplication *)application;
-
-@end
+extern NSString *const FBSDKDialogConfigurationFeatureUseNativeFlow;
+extern NSString *const FBSDKDialogConfigurationFeatureUseSafariViewController;

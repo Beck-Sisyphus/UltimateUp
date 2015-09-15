@@ -1,17 +1,15 @@
-# Uncomment this line to define a global platform for your project
 source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '9.0'
 use_frameworks!
 
+link_with 'UltimateUp'
 target 'UltimateUp' do
-
-# pod 'Starscream', :git => "https://github.com/daltoniam/starscream.git", :tag => "0.9.1"
 
 pod 'FBSDKCoreKit'
 # pod 'FBSDKShareKit'
 pod 'FBSDKLoginKit'
 pod 'GoogleMaps'
-pod 'Socket.IO-Client-Swift', :git => 'https://github.com/socketio/socket.io-client-swift.git', :branch => 'swift-2'
+# pod 'Socket.IO-Client-Swift', :git => 'https://github.com/socketio/socket.io-client-swift.git', :branch => 'swift-2'
 # pod 'Socket.IO-Client-Swift'
 
 end

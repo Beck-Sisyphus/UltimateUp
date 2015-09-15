@@ -16,15 +16,17 @@
 // IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 // CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-@protocol FBSDKURLOpening <NSObject>
+#import <Foundation/Foundation.h>
 
-// Implementations should make sure they can handle nil parameters
-// which is possible in SafariViewController.
-- (BOOL)application:(UIApplication *)application
-            openURL:(NSURL *)url
-  sourceApplication:(NSString *)sourceApplication
-         annotation:(id)annotation;
+#import <FBSDKLoginKit/FBSDKLoginManagerLoginResult.h>
 
-- (void)applicationDidBecomeActive:(UIApplication *)application;
+@interface FBSDKLoginManagerLoginResult()
 
+@property (nonatomic, readonly) NSDictionary *loggingExtras;
+
+// legacy flag indicating this is an intermediary result only for logging purposes.
+@property (nonatomic) BOOL isSkipped;
+
+// adds additional logging entry to extras - only sent as part of `endLoginWithResult:`
+-(void)addLoggingExtra:(id)object forKey:(id<NSCopying>)key;
 @end
