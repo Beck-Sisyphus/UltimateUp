@@ -10,6 +10,8 @@ import UIKit
 import FBSDKLoginKit
 //import Socket_IO_Client_Swift
 
+// Not used anymore
+
 class createGameController: UIViewController {
 
 //    let socket = SocketIOClient(socketURL: "52.4.253.222:mobi")
@@ -54,3 +56,4 @@ class createGameController: UIViewController {
 //        socket.connect()
     }
 }
+

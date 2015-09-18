@@ -12,15 +12,20 @@ import FBSDKLoginKit
 
 struct Constants {
     struct Notification {
-        static let Name = "is Sign In Name"
-        static let Key  = "is Sign In Key"
+        static let Name = "is signed in name"
+        static let Key  = "is signed in key: Bool"
+    }
+    struct Level {
+        static let Name = "declared level name"
+        static let Key  = "declared level key: Int, -1 if undeclared"
+    }
+    struct DiscValue {
+        static let Name = "if have disc name"
+        static let Key  = "if have disc key: Bool"
     }
 }
 
 class SignInViewController: UIViewController, FBSDKLoginButtonDelegate {
-
-
-    
     // MARK: Facebook Login
 
     @IBOutlet var loginButton: FBSDKLoginButton!

@@ -10,6 +10,7 @@
 		8C2CB67C1B2A9BFA002425D5 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C2CB6781B2A9AC7002425D5 /* CoreBluetooth.framework */; };
 		8C2CB67D1B2A9BFF002425D5 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C2CB67A1B2A9AD0002425D5 /* Accelerate.framework */; };
 		8C8896D21BA8D75F00BC1F13 /* userProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8896D11BA8D75F00BC1F13 /* userProfileTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
+		8C8896D81BA9F9B900BC1F13 /* userProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8896D71BA9F9B900BC1F13 /* userProfileModel.swift */; settings = {ASSET_TAGS = (); }; };
 		8C8C346E1B65B7810016DDC3 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8C346D1B65B7810016DDC3 /* SettingViewController.swift */; };
 		8C94DC431AC2715000A6205D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C94DC421AC2715000A6205D /* AppDelegate.swift */; };
 		8C94DC451AC2715000A6205D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C94DC441AC2715000A6205D /* MainViewController.swift */; };
@@ -18,6 +19,10 @@
 		8C94DC4D1AC2715000A6205D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C94DC4B1AC2715000A6205D /* LaunchScreen.xib */; };
 		8C94DC591AC2715000A6205D /* UltimateUpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C94DC581AC2715000A6205D /* UltimateUpTests.swift */; };
 		8CBAA34C1AC5FECF00F0DDCD /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBAA34B1AC5FECF00F0DDCD /* SignInViewController.swift */; };
+		8CC2A5E01BAB5E5500BB7EC0 /* levelTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC2A5DF1BAB5E5500BB7EC0 /* levelTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		8CC2A5E21BAB857200BB7EC0 /* levelDeclareTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC2A5E11BAB857200BB7EC0 /* levelDeclareTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		8CC2A5E41BABDC6300BB7EC0 /* gameSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC2A5E31BABDC6300BB7EC0 /* gameSummaryViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		8CC2A5E71BABDD3000BB7EC0 /* discControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC2A5E61BABDD3000BB7EC0 /* discControlViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		8CDE93111BA3A80D00354A92 /* FriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDE93101BA3A80D00354A92 /* FriendsTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		8CEC85BB1B2B57EE00F72D96 /* createGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEC85BA1B2B57EE00F72D96 /* createGameController.swift */; };
 		C2E344D510CE2AB51AD9AECD /* Pods_UltimateUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C4A2B5614E8A34B2A017A0D /* Pods_UltimateUp.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -37,6 +42,7 @@
 		8C2CB6781B2A9AC7002425D5 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		8C2CB67A1B2A9AD0002425D5 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		8C8896D11BA8D75F00BC1F13 /* userProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = userProfileTableViewCell.swift; sourceTree = "<group>"; };
+		8C8896D71BA9F9B900BC1F13 /* userProfileModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = userProfileModel.swift; sourceTree = "<group>"; };
 		8C8C346D1B65B7810016DDC3 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		8C94DC3D1AC2715000A6205D /* UltimateUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UltimateUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C94DC411AC2715000A6205D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -50,10 +56,14 @@
 		8C94DC581AC2715000A6205D /* UltimateUpTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltimateUpTests.swift; sourceTree = "<group>"; };
 		8C94DC671AC2732E00A6205D /* UltimateUp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UltimateUp-Bridging-Header.h"; sourceTree = "<group>"; };
 		8CBAA34B1AC5FECF00F0DDCD /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		8CC2A5DF1BAB5E5500BB7EC0 /* levelTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = levelTableViewController.swift; sourceTree = "<group>"; };
+		8CC2A5E11BAB857200BB7EC0 /* levelDeclareTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = levelDeclareTableViewController.swift; sourceTree = "<group>"; };
+		8CC2A5E31BABDC6300BB7EC0 /* gameSummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = gameSummaryViewController.swift; sourceTree = "<group>"; };
+		8CC2A5E61BABDD3000BB7EC0 /* discControlViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = discControlViewController.swift; sourceTree = "<group>"; };
 		8CDE93101BA3A80D00354A92 /* FriendsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsTableViewController.swift; sourceTree = "<group>"; };
 		8CE9B4781B9F80F000927AA2 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		8CE9B4791B9F80F000927AA2 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
-		8CEC85BA1B2B57EE00F72D96 /* createGameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = createGameController.swift; sourceTree = "<group>"; };
+		8CEC85BA1B2B57EE00F72D96 /* createGameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = createGameController.swift; path = UltimateUp/createGameController.swift; sourceTree = "<group>"; };
 		9C4A2B5614E8A34B2A017A0D /* Pods_UltimateUp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UltimateUp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A45291C5D7BCA96225487712 /* Pods-UltimateUp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UltimateUp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UltimateUp/Pods-UltimateUp.debug.xcconfig"; sourceTree = "<group>"; };
 		CD25FB52882852CC597C1815 /* Pods-UltimateUp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UltimateUp.release.xcconfig"; path = "Pods/Target Support Files/Pods-UltimateUp/Pods-UltimateUp.release.xcconfig"; sourceTree = "<group>"; };
@@ -105,6 +115,8 @@
 				8CDE93101BA3A80D00354A92 /* FriendsTableViewController.swift */,
 				8C8C346D1B65B7810016DDC3 /* SettingViewController.swift */,
 				8C8896D11BA8D75F00BC1F13 /* userProfileTableViewCell.swift */,
+				8C8896D71BA9F9B900BC1F13 /* userProfileModel.swift */,
+				8CC2A5DF1BAB5E5500BB7EC0 /* levelTableViewController.swift */,
 			);
 			name = "Setting View";
 			sourceTree = "<group>";
@@ -113,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				8C94DC3F1AC2715000A6205D /* UltimateUp */,
+				8CEC85BA1B2B57EE00F72D96 /* createGameController.swift */,
 				8C94DC551AC2715000A6205D /* UltimateUpTests */,
 				8C94DC3E1AC2715000A6205D /* Products */,
 				62F85AFE7C9AE37F0A761F2A /* Frameworks */,
@@ -132,6 +145,7 @@
 		8C94DC3F1AC2715000A6205D /* UltimateUp */ = {
 			isa = PBXGroup;
 			children = (
+				8CC2A5E51BABDC7000BB7EC0 /* Onboard */,
 				8C8896D01BA8D6D100BC1F13 /* Setting View */,
 				8C94DC461AC2715000A6205D /* Main.storyboard */,
 				8C94DC401AC2715000A6205D /* Supporting Files */,
@@ -143,8 +157,6 @@
 			isa = PBXGroup;
 			children = (
 				8C94DC441AC2715000A6205D /* MainViewController.swift */,
-				8CBAA34B1AC5FECF00F0DDCD /* SignInViewController.swift */,
-				8CEC85BA1B2B57EE00F72D96 /* createGameController.swift */,
 				8C94DC491AC2715000A6205D /* Images.xcassets */,
 				8C94DC4B1AC2715000A6205D /* LaunchScreen.xib */,
 				8C94DC421AC2715000A6205D /* AppDelegate.swift */,
@@ -169,6 +181,17 @@
 				8C94DC571AC2715000A6205D /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8CC2A5E51BABDC7000BB7EC0 /* Onboard */ = {
+			isa = PBXGroup;
+			children = (
+				8CC2A5E31BABDC6300BB7EC0 /* gameSummaryViewController.swift */,
+				8CC2A5E11BAB857200BB7EC0 /* levelDeclareTableViewController.swift */,
+				8CBAA34B1AC5FECF00F0DDCD /* SignInViewController.swift */,
+				8CC2A5E61BABDD3000BB7EC0 /* discControlViewController.swift */,
+			);
+			name = Onboard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -325,9 +348,14 @@
 			files = (
 				8C8C346E1B65B7810016DDC3 /* SettingViewController.swift in Sources */,
 				8C94DC451AC2715000A6205D /* MainViewController.swift in Sources */,
+				8C8896D81BA9F9B900BC1F13 /* userProfileModel.swift in Sources */,
 				8CDE93111BA3A80D00354A92 /* FriendsTableViewController.swift in Sources */,
 				8C94DC431AC2715000A6205D /* AppDelegate.swift in Sources */,
+				8CC2A5E21BAB857200BB7EC0 /* levelDeclareTableViewController.swift in Sources */,
+				8CC2A5E01BAB5E5500BB7EC0 /* levelTableViewController.swift in Sources */,
+				8CC2A5E41BABDC6300BB7EC0 /* gameSummaryViewController.swift in Sources */,
 				8CBAA34C1AC5FECF00F0DDCD /* SignInViewController.swift in Sources */,
+				8CC2A5E71BABDD3000BB7EC0 /* discControlViewController.swift in Sources */,
 				8CEC85BB1B2B57EE00F72D96 /* createGameController.swift in Sources */,
 				8C8896D21BA8D75F00BC1F13 /* userProfileTableViewCell.swift in Sources */,
 			);

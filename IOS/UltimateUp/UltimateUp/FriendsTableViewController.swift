@@ -13,8 +13,63 @@ import FBSDKLoginKit
 
 class FriendsTableViewController: UITableViewController, UITextFieldDelegate
 {
-    var friendsNumber = 0
+    var friends = [[userProfile]]()
     
+    // MARK: View Life Cycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        refresh()
+            }
+    
+    private func refresh() {
+        let graphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "friends"])
+        graphRequest.startWithCompletionHandler { connection, result, error in
+            dispatch_async(dispatch_get_main_queue()) { () -> Void in
+                if ((error) != nil) { print("Error: \(error)", terminator: "\n") }
+                else
+                {
+                    if let startingNode = result.valueForKey("friends") as? NSDictionary{
+                        if let friendNode = startingNode.valueForKey("data") as? NSArray{
+                            print("The members contains \(friendNode)", terminator: "\n")
+                            if let friendData = friendNode[0] as? NSDictionary{
+                                let friendId = friendData.valueForKey("id") as? String
+                                let friendName = friendData.valueForKey("name") as? String
+                                if friendId != nil && friendName != nil {
+                                    print("Hopefully we have \(friendName!) with ID of \(friendId!)")
+                                    let newfriend = userProfile(data: ["id": friendId!, "name": friendName!])
+                                    var friendsInSection = [userProfile]()
+                                    friendsInSection.insert(newfriend!, atIndex: 0)
+                                    self.friends.insert(friendsInSection, atIndex: 0)
+                                    print(self.friends)
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        self.tableView.reloadData()
+    }
+
+    // MARK: - Table view data source
+
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return friends.count
+    }
+
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return friends[section].count
+    }   
+
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("friendsCell", forIndexPath: indexPath) as! userProfileTableViewCell
+        cell.friend = friends[indexPath.section][indexPath.row]
+
+        return cell
+    }
+
+    // MARK: For search
     @IBOutlet weak var searchTextField: UITextField! {
         didSet {
             searchTextField.delegate = self
@@ -26,80 +81,6 @@ class FriendsTableViewController: UITableViewController, UITextFieldDelegate
             textField.resignFirstResponder()
         }
         return true
-    }
-
-    
-    // MARK: View Life Cycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        
-        let graphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "friends"])
-        graphRequest.startWithCompletionHandler { connection, result, error in
-            dispatch_async(dispatch_get_main_queue()) { () -> Void in
-                if ((error) != nil) { print("Error: \(error)", terminator: "\n") }
-                else
-                {
-                    if let friendSummary = result["data"] as? NSMutableArray{
-//                        let friendList = friendSummary["members"]
-//                        if friendList != nil {
-////                            self.friendsNumber = friendList!.count
-//                            print("user has \(self.friendsNumber)", terminator: "\n")
-//                        }
-                        print("\(friendSummary)", terminator: "\n")
-                    }
-                }
-            }
-        }
-        self.tableView.reloadData()
-    }
-
-    // MARK: - Table view data source
-
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return friendsNumber
-    }
-
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return friendsNumber
-    }
-
-    
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        // get the friend's from Facebook
-//        let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "/me/friends",
-//            parameters: ["fields": "data"])
-//        graphRequest.startWithCompletionHandler{ connection, result, error in
-//            
-//            if ((error) != nil)
-//            {
-//                print("Error: \(error)", terminator: "\n")
-//            }
-//            else
-//            {
-//                print("Result is: \(result)", terminator: "\n")
-//                
-//                if let friends = result["data"] as? NSArray {
-//                    print("friends\(friends)", terminator: "\n")
-//                    for friend in friends {
-//                        let friendName = friend["name"] as? NSString
-//                        print("friend list:\(friendName)", terminator:"\n")
-//                    }
-//                }
-//            }
-//        }
-        
-        let cell = tableView.dequeueReusableCellWithIdentifier("friendsCell", forIndexPath: indexPath)
-        cell.textLabel?.text = "should be friend's name"
-        cell.detailTextLabel?.text = "should be friend's level"
-        cell.imageView?.image = nil // should be the image of his friend
-
-        return cell
     }
 
     /*

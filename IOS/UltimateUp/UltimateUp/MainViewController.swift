@@ -123,28 +123,6 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, UISplitVi
     func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController: UIViewController, ontoPrimaryViewController primaryViewController: UIViewController) -> Bool {
         return true
     }
-    
-    // MARK: Segue
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        // pull out a UIViewController from a NavigationController
-//        var destination = segue.destinationViewController as UIViewController
-//        if let navControler = destination as? UINavigationController {
-//            destination = navControler.visibleViewController!
-//        }
-//        if let identifier = segue.identifier {
-//            if identifier == "beforeSignIn" {
-//                if let _ = destination as? SignInViewController {
-//                    
-//                }
-//            }
-//            else if identifier == "afterSignIn" {
-//                if let _ = destination as? createGameController {
-//                    
-//                }
-//            }
-//        }
-//
-//    }
 }
 
 

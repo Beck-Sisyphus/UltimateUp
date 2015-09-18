@@ -15,8 +15,6 @@ class SettingViewController: UITableViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var levelLabel: UILabel!
 
-
-    
     var userName: String? = "" {
         didSet {
             updateUI()
