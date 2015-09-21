@@ -8,78 +8,150 @@
 
 import UIKit
 import CoreLocation
+import GoogleMaps
 
-class MainViewController: UIViewController, CLLocationManagerDelegate, UISplitViewControllerDelegate {
-
-    // MARK: Google Map
-    private var desiredAccuracy: CLLocationAccuracy = kCLLocationAccuracyNearestTenMeters
-    private var latitude: CLLocationDegrees = 47.6550
-    private var longitude:CLLocationDegrees = 122.3080
-    private let locationManager = CLLocationManager()
-    private var isSignIn = false
+class MainViewController: UIViewController, CLLocationManagerDelegate, UISplitViewControllerDelegate
+{
+    private var isLogin: Bool? {
+        didSet {
+            checkLogin()
+        }
+    }
+    var haveDisc: Bool? {
+        didSet {
+            view.setNeedsDisplay()
+        }
+    }
+    private var isPublic: Bool? {
+        didSet {
+            
+        }
+    }
     
-    @IBOutlet var GoogleMap: GMSMapView!
+//    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+//        self.isLogin = false
+//        self.haveDisc = true
+//        self.isPublic = false
+//        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+//    }
+//    
+//    required init?(coder aDecoder: NSCoder) {
+//        self.isLogin = false
+//        self.haveDisc = true
+//        self.isPublic = false
+//        super.init(coder: aDecoder)
+//    }
+    
+
+    @IBOutlet weak var discButtonView: UIBarButtonItem!
+    @IBOutlet weak var createGameButtonView: UIButton!
+    
+    
+    // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         // Allow the master view as the first view
         splitViewController?.delegate = self
         
+        handleGoogleMap()
+        handleNotification()
+        
+        checkLogin()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        center.removeObserver(self)
+    }
+    
+    @IBAction func createGame(sender: UIButton) {
+        if !(isLogin!) {
+            // Onboarding
+            performSegueWithIdentifier("beforeSignIn", sender: self)
+        }
+        else {
+            // Normal start
+            GoogleMap.animateToZoom(16)
+        }
+    }
+    
+    func checkLogin() {
+        if isLogin == nil {
+            print("When the view start, the login is nil", terminator: "\n")
+            self.isLogin = false
+        }
+        print("\(isLogin) in Main view")
+        // Onboarding
+        if  !(isLogin!) {
+            self.title = "UltimateUp"
+            createGameButtonView.setTitle("Create Game", forState: UIControlState.Normal)
+            self.navigationItem.rightBarButtonItem = nil
+        }
+            // Normal start
+        else {
+            self.title = "Do you have discs?"
+            createGameButtonView.setTitle("Go Public", forState: UIControlState.Normal)
+            self.navigationItem.rightBarButtonItem = self.discButtonView
+            afterSignInGoogleMap()
+        }
+    }
+    
+    @IBAction func discButton(sender: UIBarButtonItem) {
+        
+    }
+    
+    // MARK: Google Map
+    private let locationManager = CLLocationManager()
+    private var desiredAccuracy: CLLocationAccuracy = kCLLocationAccuracyNearestTenMeters
+    private var latitude: CLLocationDegrees = 47.6550
+    private var longitude:CLLocationDegrees = 122.3080
+    
+    @IBOutlet var GoogleMap: GMSMapView!
+
+    func handleGoogleMap() {
         locationManager.delegate = self
         locationManager.desiredAccuracy = self.desiredAccuracy
         
         if CLLocationManager.authorizationStatus() == .NotDetermined {
             locationManager.requestWhenInUseAuthorization()
         }
-
+        
         let camera = GMSCameraPosition.cameraWithLatitude(47.655,
             longitude: -122.308, zoom: 14)
         let mapView = GMSMapView.mapWithFrame(CGRectZero, camera: camera)
         mapView.myLocationEnabled = true
-        // self.view = mapView
-        // self.view.addSubview(GoogleMap)
-        // self.GoogleMap = mapView
+        mapView.settings.compassButton = true
+        mapView.settings.myLocationButton = true
         self.GoogleMap.camera = camera
-
-        let marker = GMSMarker()
-        marker.position = CLLocationCoordinate2DMake(47.655, -122.308)
-        marker.title = "Sydney"
-        marker.snippet = "Australia"
-        marker.map = mapView
+        self.GoogleMap = mapView
         
-        // MARK: Global Notification
-        let center = NSNotificationCenter.defaultCenter()
-        let queue  = NSOperationQueue.mainQueue()
-        center.addObserverForName(Constants.Notification.Name, object: nil
-//            UIApplication.sharedApplication().SignInViewController?
-            , queue: queue)
-        { notification in
-            print("Recieve notification from sign in view controller", terminator: "\n")
-            if let isSignIn = notification.userInfo?[Constants.Notification.Key] as? Bool {
-                self.isSignIn = isSignIn
-            }
-        }
+//        let placesClient = GMSPlacesClient()
+//        placesClient.currentPlaceWithCallback { (placeLikelihoods: GMSPlaceLikelihoodList?, error) in
+//            if error != nil {
+//                print("can not get current places", terminator: "\n")
+//            }   else {
+//                if placeLikelihoods != nil {
+//                    for likelihood in placeLikelihoods!.likelihoods {
+//                        if let likelihood = likelihood as? GMSPlaceLikelihood {
+//                            let place = likelihood.place
+//                            print("Current Place name \(place.name) at likelihood \(likelihood.likelihood)")
+//                            print("Current Place address \(place.formattedAddress)")
+//                            print("Current Place attributions \(place.attributions)")
+//                            print("Current PlaceID \(place.placeID)")
+//                        }
+//                    }
+//                }
+//            }
+//        }
+        
+        
+//        let marker = GMSMarker()
+//        marker.position = CLLocationCoordinate2DMake(47.655, -122.308)
+//        marker.title = "Sydney"
+//        marker.snippet = "Australia"
+//        marker.map = mapView
     }
     
-    @IBAction func createGame(sender: UIButton) {
-//        print("\(latitude)", appendNewline: false)
-//        print("\(longitude)", appendNewline: false)
-        if isSignIn {
-            performSegueWithIdentifier("afterSignIn", sender: self)
-        }
-        else {
-            performSegueWithIdentifier("beforeSignIn", sender: self)
-        }
-    }
-
-    // These two methods get current position
-//    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [AnyObject]) {
-//        let currentLocations: [CLLocation]? = locations as? [CLLocation]
-//        if let current = currentLocations as [CLLocation]! {
-//            latitude = current[0].coordinate.latitude
-////            longitude = current[1].coordinate.longitude
-//        }
-//    }
-//    
     func locationManager(manager: CLLocationManager,
         didChangeAuthorizationStatus status: CLAuthorizationStatus)
     {
@@ -113,11 +185,33 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, UISplitVi
         }
     }
     
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
-        let center = NSNotificationCenter.defaultCenter()
-        center.removeObserver(self)
+    func afterSignInGoogleMap() {
+        
     }
+    
+    ////    These two methods get current position
+    //    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [AnyObject]) {
+    //        let currentLocations: [CLLocation]? = locations as? [CLLocation]
+    //        if let current = currentLocations as [CLLocation]! {
+    //            latitude = current[0].coordinate.latitude
+    ////            longitude = current[1].coordinate.longitude
+    //        }
+    //    }
+    
+    // MARK: Sign in notification
+    let center = NSNotificationCenter.defaultCenter()
+    
+    func handleNotification() {
+        let queue  = NSOperationQueue.mainQueue()
+        center.addObserverForName(Constants.Notification.Name, object: nil, queue: queue)
+            { notification in
+            print("Recieve notification from sign in view controller", terminator: "\n")
+            if let isLogin = notification.userInfo?[Constants.Notification.Key] as? Bool {
+                self.isLogin = isLogin
+            }
+        }
+    }
+
     
     // MARK: Let master view comes at first screen
     func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController: UIViewController, ontoPrimaryViewController primaryViewController: UIViewController) -> Bool {

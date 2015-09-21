@@ -19,7 +19,7 @@ class FriendsTableViewController: UITableViewController, UITextFieldDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         refresh()
-            }
+    }
     
     private func refresh() {
         let graphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "friends"])

@@ -22,28 +22,22 @@ class levelTableViewController: UITableViewController {
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        removeAllObserver()
+        center.removeObserver(self)
     }
     
     // MARK: - Notification receive
     private let center = NSNotificationCenter.defaultCenter()
-    private var levelObserver: NSObjectProtocol?
+//    private var levelObserver: NSObjectProtocol?
     
     private func handleNotification() {
         let queue = NSOperationQueue.mainQueue()
-        levelObserver = center.addObserverForName(Constants.Level.Name, object: nil, queue: queue) { notification in
+        center.addObserverForName(Constants.Level.Name, object: nil, queue: queue) { notification in
             if let level = notification.userInfo?[Constants.Level.Key] as? Int {
                 self.level = level
             }
         }
     }
-    
-    private func removeAllObserver() {
-        if let observer = levelObserver {
-            center.removeObserver(observer)
-        }
-    }
-    
+
     // MARK: - Process and display
     private func processNotification() {
         

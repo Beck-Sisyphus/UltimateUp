@@ -5,11 +5,6 @@
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <mutableArray key="HelveticaNeue.ttc">
-            <string>HelveticaNeue</string>
-        </mutableArray>
-    </customFonts>
     <scenes>
         <!--Navigation Controller-->
         <scene sceneID="Sx3-TW-mZz">
@@ -27,7 +22,7 @@
             </objects>
             <point key="canvasLocation" x="-3550.5" y="-2337"/>
         </scene>
-        <!--Main View Controller-->
+        <!--UltimateUp-->
         <scene sceneID="GUY-dq-Bkp">
             <objects>
                 <viewController id="4GS-Sx-oyO" customClass="MainViewController" customModule="UltimateUp" customModuleProvider="target" sceneMemberID="viewController">
@@ -42,67 +37,61 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XBZ-HE-MKS" customClass="GMSMapView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OWa-nZ-yp4">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jMB-gA-kxn">
                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="ffV-In-L0r"/>
+                                            <constraint firstAttribute="height" constant="30" id="EPd-oT-ZAV">
+                                                <variation key="widthClass=compact" constant="60"/>
+                                            </constraint>
                                         </constraints>
                                         <state key="normal" title="Create Game"/>
                                         <variation key="default">
                                             <mask key="constraints">
-                                                <exclude reference="ffV-In-L0r"/>
+                                                <exclude reference="EPd-oT-ZAV"/>
                                             </mask>
                                         </variation>
                                         <variation key="widthClass=compact">
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                             <mask key="constraints">
-                                                <include reference="ffV-In-L0r"/>
+                                                <include reference="EPd-oT-ZAV"/>
                                             </mask>
                                         </variation>
                                         <variation key="widthClass=regular">
                                             <mask key="constraints">
-                                                <include reference="ffV-In-L0r"/>
+                                                <include reference="EPd-oT-ZAV"/>
                                             </mask>
                                         </variation>
                                         <connections>
-                                            <action selector="createGame:" destination="4GS-Sx-oyO" eventType="touchUpInside" id="PjM-s3-5tH"/>
+                                            <action selector="createGame:" destination="4GS-Sx-oyO" eventType="touchUpInside" id="YHf-Mp-cUP"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="OWa-nZ-yp4" firstAttribute="leading" secondItem="XBZ-HE-MKS" secondAttribute="leadingMargin" id="119-cO-bUo"/>
-                                    <constraint firstAttribute="bottom" secondItem="OWa-nZ-yp4" secondAttribute="bottom" constant="69" id="A5F-OD-dXJ"/>
-                                    <constraint firstItem="OWa-nZ-yp4" firstAttribute="trailing" secondItem="XBZ-HE-MKS" secondAttribute="trailingMargin" id="f3n-3F-KC5"/>
+                                    <constraint firstAttribute="bottom" secondItem="jMB-gA-kxn" secondAttribute="bottom" constant="8" id="9A5-P3-aVA"/>
+                                    <constraint firstAttribute="trailing" secondItem="jMB-gA-kxn" secondAttribute="trailing" constant="20" symbolic="YES" id="dSR-3R-dNi">
+                                        <variation key="widthClass=compact" constant="8"/>
+                                    </constraint>
+                                    <constraint firstItem="jMB-gA-kxn" firstAttribute="leading" secondItem="XBZ-HE-MKS" secondAttribute="leading" constant="8" id="haI-kT-khk"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="subviews">
-                                        <exclude reference="OWa-nZ-yp4"/>
+                                        <exclude reference="jMB-gA-kxn"/>
                                     </mask>
                                     <mask key="constraints">
-                                        <exclude reference="119-cO-bUo"/>
-                                        <exclude reference="A5F-OD-dXJ"/>
-                                        <exclude reference="f3n-3F-KC5"/>
+                                        <exclude reference="9A5-P3-aVA"/>
+                                        <exclude reference="dSR-3R-dNi"/>
+                                        <exclude reference="haI-kT-khk"/>
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact">
                                     <mask key="subviews">
-                                        <include reference="OWa-nZ-yp4"/>
+                                        <include reference="jMB-gA-kxn"/>
                                     </mask>
                                     <mask key="constraints">
-                                        <include reference="119-cO-bUo"/>
-                                        <include reference="A5F-OD-dXJ"/>
-                                        <include reference="f3n-3F-KC5"/>
-                                    </mask>
-                                </variation>
-                                <variation key="widthClass=regular">
-                                    <mask key="subviews">
-                                        <include reference="OWa-nZ-yp4"/>
-                                    </mask>
-                                    <mask key="constraints">
-                                        <include reference="119-cO-bUo"/>
-                                        <include reference="A5F-OD-dXJ"/>
-                                        <include reference="f3n-3F-KC5"/>
+                                        <include reference="9A5-P3-aVA"/>
+                                        <include reference="dSR-3R-dNi"/>
+                                        <include reference="haI-kT-khk"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -110,7 +99,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="XBZ-HE-MKS" firstAttribute="top" secondItem="zjt-zy-NrM" secondAttribute="bottom" id="aXy-Np-He2"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="XBZ-HE-MKS" secondAttribute="trailing" constant="-16" id="uDc-sa-3Ja"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="XBZ-HE-MKS" secondAttribute="trailing" constant="-16" id="uDc-sa-3Ja">
+                                <variation key="widthClass=compact" constant="-20"/>
+                            </constraint>
                             <constraint firstItem="XBZ-HE-MKS" firstAttribute="bottom" secondItem="8qd-5G-9DQ" secondAttribute="top" id="zC9-xG-zw9"/>
                             <constraint firstItem="XBZ-HE-MKS" firstAttribute="leading" secondItem="sJW-01-Wb7" secondAttribute="leading" id="zvi-b3-rER"/>
                         </constraints>
@@ -148,18 +139,28 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="ehg-8M-EiO">
+                    <navigationItem key="navigationItem" title="UltimateUp" id="ehg-8M-EiO">
                         <barButtonItem key="leftBarButtonItem" title=" U  " id="0UA-U6-9nD">
                             <connections>
                                 <segue destination="TJw-Lq-xU9" kind="show" identifier="systemSetting" id="i11-SK-Oh9"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="UNE-1d-RC4"/>
+                        <barButtonItem key="rightBarButtonItem" style="done" id="w1F-Nn-Y6r">
+                            <switch key="customView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="aeE-er-pE4">
+                                <rect key="frame" x="531" y="6" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="onTintColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </switch>
+                            <connections>
+                                <action selector="discButton:" destination="4GS-Sx-oyO" id="XfA-Mg-zoc"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="GoogleMap" destination="XBZ-HE-MKS" id="5Ht-EI-iGH"/>
+                        <outlet property="createGameButtonView" destination="jMB-gA-kxn" id="zyD-xO-sQy"/>
+                        <outlet property="discButtonView" destination="w1F-Nn-Y6r" id="EU8-Iy-7bB"/>
                         <segue destination="lQe-Ay-xyB" kind="show" identifier="beforeSignIn" id="dws-55-4Dg"/>
-                        <segue destination="m6Z-jO-Emd" kind="show" identifier="afterSignIn" id="JMm-tn-7hU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6mu-k5-MUL" sceneMemberID="firstResponder"/>
@@ -830,16 +831,16 @@
                             <tableViewSection id="Zid-Og-fmt">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="levelCell" rowHeight="101" id="SZy-FP-pth">
-                                        <rect key="frame" x="0.0" y="86" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="64" width="600" height="101"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SZy-FP-pth" id="j4s-nX-E1X">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The level you declare is" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gbe-2b-nFk">
                                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -874,16 +875,16 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="levelCell" rowHeight="87" id="ceg-gQ-Z0r">
-                                        <rect key="frame" x="0.0" y="86" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="165" width="600" height="87"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ceg-gQ-Z0r" id="qf4-Fx-Bzr">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="86"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C5B-ga-eZM">
                                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -957,7 +958,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rig-WA-b0B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="51" y="-1061"/>
+            <point key="canvasLocation" x="-729" y="-897"/>
         </scene>
         <!--Level Declare Table View Controller-->
         <scene sceneID="eT1-t0-fRQ">
@@ -1212,7 +1213,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fa3-De-TuJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-904.5" y="-1061"/>
+            <point key="canvasLocation" x="-1684.5" y="-897"/>
         </scene>
         <!--Disc Control View Controller-->
         <scene sceneID="kqI-ar-IKH">
@@ -1240,7 +1241,7 @@
                                 <state key="normal" title="Nope"/>
                                 <connections>
                                     <action selector="donotHaveDiscButton:" destination="Vic-J5-J9D" eventType="touchUpInside" id="LyT-9Z-Cqi"/>
-                                    <segue destination="nNQ-Sz-s6l" kind="show" identifier="notHaveDisc" id="saZ-fz-jS4"/>
+                                    <segue destination="4GS-Sx-oyO" kind="show" identifier="notHaveDisc" id="a6T-Tm-kvc"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oZV-hg-3vD">
@@ -1261,7 +1262,7 @@
                                 </variation>
                                 <connections>
                                     <action selector="haveDiscButton:" destination="Vic-J5-J9D" eventType="touchUpInside" id="qxO-jt-PMH"/>
-                                    <segue destination="nNQ-Sz-s6l" kind="show" identifier="haveDisc" id="Tvl-Nu-qHA"/>
+                                    <segue destination="4GS-Sx-oyO" kind="show" identifier="haveDisc" id="9yZ-Jw-uWb"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1299,15 +1300,15 @@
                                 <exclude reference="Buy-A0-xht"/>
                                 <exclude reference="QBG-gI-FyP"/>
                                 <exclude reference="gqX-kD-vKY"/>
-                                <exclude reference="9Nq-fV-dgw"/>
-                                <exclude reference="g0K-Ct-od6"/>
+                                <exclude reference="8mU-Da-J7z"/>
+                                <exclude reference="YsS-RT-a8I"/>
+                                <exclude reference="rWL-wU-geC"/>
+                                <exclude reference="rpB-So-j9k"/>
                                 <exclude reference="HvQ-jF-FDh"/>
                                 <exclude reference="lp1-Px-UeI"/>
                                 <exclude reference="vFx-JF-MC4"/>
-                                <exclude reference="rWL-wU-geC"/>
-                                <exclude reference="rpB-So-j9k"/>
-                                <exclude reference="8mU-Da-J7z"/>
-                                <exclude reference="YsS-RT-a8I"/>
+                                <exclude reference="9Nq-fV-dgw"/>
+                                <exclude reference="g0K-Ct-od6"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -1321,15 +1322,15 @@
                                 <include reference="Buy-A0-xht"/>
                                 <include reference="QBG-gI-FyP"/>
                                 <include reference="gqX-kD-vKY"/>
-                                <include reference="9Nq-fV-dgw"/>
-                                <include reference="g0K-Ct-od6"/>
+                                <include reference="8mU-Da-J7z"/>
+                                <include reference="YsS-RT-a8I"/>
+                                <include reference="rWL-wU-geC"/>
+                                <include reference="rpB-So-j9k"/>
                                 <include reference="HvQ-jF-FDh"/>
                                 <include reference="lp1-Px-UeI"/>
                                 <include reference="vFx-JF-MC4"/>
-                                <include reference="rWL-wU-geC"/>
-                                <include reference="rpB-So-j9k"/>
-                                <include reference="8mU-Da-J7z"/>
-                                <include reference="YsS-RT-a8I"/>
+                                <include reference="9Nq-fV-dgw"/>
+                                <include reference="g0K-Ct-od6"/>
                             </mask>
                         </variation>
                     </view>
@@ -1337,24 +1338,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Ok-68-TDP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="826.5" y="-1061"/>
-        </scene>
-        <!--Game Summary View Controller-->
-        <scene sceneID="NUx-AH-TTG">
-            <objects>
-                <viewController id="nNQ-Sz-s6l" customClass="gameSummaryViewController" customModule="UltimateUp" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Bau-Jr-Jua"/>
-                        <viewControllerLayoutGuide type="bottom" id="aJh-D8-xmS"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="RUE-WX-TuG">
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TGm-Gi-CdV" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1644" y="-1061"/>
+            <point key="canvasLocation" x="51" y="-897"/>
         </scene>
         <!--SignIn View Controller-->
         <scene sceneID="jhH-67-u5v">
@@ -1478,7 +1462,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="syI-SJ-pI3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2770.5" y="-1061"/>
+            <point key="canvasLocation" x="-3550.5" y="-897"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kxO-2J-k9l">
@@ -1496,7 +1480,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zfT-Ip-92r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3550.5" y="-1061"/>
+            <point key="canvasLocation" x="-4330.5" y="-897"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="VT9-42-UgS">
@@ -1532,15 +1516,15 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yaq-fA-hlh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1822.5" y="-1061"/>
+            <point key="canvasLocation" x="-2602.5" y="-897"/>
         </scene>
     </scenes>
     <resources>
         <image name="frisbee_discs" width="268" height="262"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="a6T-Tm-kvc"/>
+        <segue reference="jTg-fC-MrJ"/>
         <segue reference="dws-55-4Dg"/>
-        <segue reference="Bqj-e9-Phz"/>
-        <segue reference="saZ-fz-jS4"/>
     </inferredMetricsTieBreakers>
 </document>

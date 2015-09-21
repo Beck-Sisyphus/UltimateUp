@@ -24,7 +24,7 @@
 		8CC2A5E41BABDC6300BB7EC0 /* gameSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC2A5E31BABDC6300BB7EC0 /* gameSummaryViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		8CC2A5E71BABDD3000BB7EC0 /* discControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC2A5E61BABDD3000BB7EC0 /* discControlViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		8CDE93111BA3A80D00354A92 /* FriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDE93101BA3A80D00354A92 /* FriendsTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		8CEC85BB1B2B57EE00F72D96 /* createGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEC85BA1B2B57EE00F72D96 /* createGameController.swift */; };
+		8CEC85BB1B2B57EE00F72D96 /* -todelete-createGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEC85BA1B2B57EE00F72D96 /* -todelete-createGameController.swift */; };
 		C2E344D510CE2AB51AD9AECD /* Pods_UltimateUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C4A2B5614E8A34B2A017A0D /* Pods_UltimateUp.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -63,7 +63,7 @@
 		8CDE93101BA3A80D00354A92 /* FriendsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsTableViewController.swift; sourceTree = "<group>"; };
 		8CE9B4781B9F80F000927AA2 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		8CE9B4791B9F80F000927AA2 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
-		8CEC85BA1B2B57EE00F72D96 /* createGameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = createGameController.swift; path = UltimateUp/createGameController.swift; sourceTree = "<group>"; };
+		8CEC85BA1B2B57EE00F72D96 /* -todelete-createGameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "-todelete-createGameController.swift"; path = "UltimateUp/-todelete-createGameController.swift"; sourceTree = "<group>"; };
 		9C4A2B5614E8A34B2A017A0D /* Pods_UltimateUp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UltimateUp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A45291C5D7BCA96225487712 /* Pods-UltimateUp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UltimateUp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UltimateUp/Pods-UltimateUp.debug.xcconfig"; sourceTree = "<group>"; };
 		CD25FB52882852CC597C1815 /* Pods-UltimateUp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UltimateUp.release.xcconfig"; path = "Pods/Target Support Files/Pods-UltimateUp/Pods-UltimateUp.release.xcconfig"; sourceTree = "<group>"; };
@@ -125,7 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				8C94DC3F1AC2715000A6205D /* UltimateUp */,
-				8CEC85BA1B2B57EE00F72D96 /* createGameController.swift */,
+				8CEC85BA1B2B57EE00F72D96 /* -todelete-createGameController.swift */,
 				8C94DC551AC2715000A6205D /* UltimateUpTests */,
 				8C94DC3E1AC2715000A6205D /* Products */,
 				62F85AFE7C9AE37F0A761F2A /* Frameworks */,
@@ -148,6 +148,7 @@
 				8CC2A5E51BABDC7000BB7EC0 /* Onboard */,
 				8C8896D01BA8D6D100BC1F13 /* Setting View */,
 				8C94DC461AC2715000A6205D /* Main.storyboard */,
+				8C94DC441AC2715000A6205D /* MainViewController.swift */,
 				8C94DC401AC2715000A6205D /* Supporting Files */,
 			);
 			path = UltimateUp;
@@ -156,7 +157,6 @@
 		8C94DC401AC2715000A6205D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				8C94DC441AC2715000A6205D /* MainViewController.swift */,
 				8C94DC491AC2715000A6205D /* Images.xcassets */,
 				8C94DC4B1AC2715000A6205D /* LaunchScreen.xib */,
 				8C94DC421AC2715000A6205D /* AppDelegate.swift */,
@@ -356,7 +356,7 @@
 				8CC2A5E41BABDC6300BB7EC0 /* gameSummaryViewController.swift in Sources */,
 				8CBAA34C1AC5FECF00F0DDCD /* SignInViewController.swift in Sources */,
 				8CC2A5E71BABDD3000BB7EC0 /* discControlViewController.swift in Sources */,
-				8CEC85BB1B2B57EE00F72D96 /* createGameController.swift in Sources */,
+				8CEC85BB1B2B57EE00F72D96 /* -todelete-createGameController.swift in Sources */,
 				8C8896D21BA8D75F00BC1F13 /* userProfileTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

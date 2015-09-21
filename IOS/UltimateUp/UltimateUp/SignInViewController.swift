@@ -57,12 +57,14 @@ class SignInViewController: UIViewController, FBSDKLoginButtonDelegate {
         }
         else if result.isCancelled {
             // Handle cancellations
+            let notification = NSNotification(name: Constants.Notification.Name, object: self, userInfo: [Constants.Notification.Key: false])
+            self.center.postNotification(notification)
         }
         else {
             // Post a notification that it is sign in
             
             let notification = NSNotification(name: Constants.Notification.Name, object: self, userInfo: [Constants.Notification.Key: true])
-            center.postNotification(notification)
+            self.center.postNotification(notification)
             
             // If you ask for multiple permissions at once, you
             // should check if specific permissions missing
@@ -88,6 +90,10 @@ class SignInViewController: UIViewController, FBSDKLoginButtonDelegate {
             {
                 print("Connection is: \(connection)", terminator: "\n")
                 print("Result is: \(result)", terminator: "\n")
+                
+                let notification = NSNotification(name: Constants.Notification.Name, object: self, userInfo: [Constants.Notification.Key: true])
+                self.center.postNotification(notification)
+                
                 self.performSegueWithIdentifier("AfterSignIn", sender: self)
             }
         }
@@ -102,20 +108,20 @@ class SignInViewController: UIViewController, FBSDKLoginButtonDelegate {
     }
     
 
-    // MARK: Navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // pull out a UIViewController from a NavigationController
-        var destination = segue.destinationViewController as UIViewController
-        if let navControler = destination as? UINavigationController {
-            destination = navControler.visibleViewController!
-        }
-        if let identifier = segue.identifier {
-            if let _ = destination as? UITableViewController{
-                switch identifier {
-                case "AfterSignIn": break // vc.isSignIn = true
-                default: break
-                }
-            }
-        }
-    }
+//    // MARK: Navigation
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        // pull out a UIViewController from a NavigationController
+//        var destination = segue.destinationViewController as UIViewController
+//        if let navControler = destination as? UINavigationController {
+//            destination = navControler.visibleViewController!
+//        }
+//        if let identifier = segue.identifier {
+//            if let _ = destination as? UITableViewController{
+//                switch identifier {
+//                case "AfterSignIn": break
+//                default: break
+//                }
+//            }
+//        }
+//    }
 }
