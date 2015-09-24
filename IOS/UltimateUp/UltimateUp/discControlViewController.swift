@@ -30,12 +30,14 @@ class discControlViewController: UIViewController {
         if let navControler = destination as? UINavigationController {
             destination = navControler.visibleViewController!
         }
-        if let gameSummary = destination as? MainViewController{
+        if let mainView = destination as? MainViewController{
             if let identifier = segue.identifier {
                 if identifier == "haveDisc" {
-                    gameSummary.haveDisc = true
+                    mainView.isLogin = true
+                    mainView.haveDisc = true
                 } else if identifier == "notHaveDisc" {
-                    gameSummary.haveDisc = false
+                    mainView.isLogin = true
+                    mainView.haveDisc = false
                 }
             }
         }

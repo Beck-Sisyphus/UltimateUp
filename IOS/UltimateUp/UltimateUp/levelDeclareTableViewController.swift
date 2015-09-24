@@ -10,7 +10,6 @@ import UIKit
 
 class levelDeclareTableViewController: UITableViewController {
 
-
     @IBOutlet weak var star0: UITableViewCell!
     @IBOutlet weak var star1: UITableViewCell!
     @IBOutlet weak var star2: UITableViewCell!

@@ -108,20 +108,20 @@ class SignInViewController: UIViewController, FBSDKLoginButtonDelegate {
     }
     
 
-//    // MARK: Navigation
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        // pull out a UIViewController from a NavigationController
-//        var destination = segue.destinationViewController as UIViewController
-//        if let navControler = destination as? UINavigationController {
-//            destination = navControler.visibleViewController!
-//        }
-//        if let identifier = segue.identifier {
-//            if let _ = destination as? UITableViewController{
-//                switch identifier {
-//                case "AfterSignIn": break
-//                default: break
-//                }
-//            }
-//        }
-//    }
+    // MARK: Navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // pull out a UIViewController from a NavigationController
+        var destination = segue.destinationViewController as UIViewController
+        if let navControler = destination as? UINavigationController {
+            destination = navControler.visibleViewController!
+        }
+        if let identifier = segue.identifier {
+            if let destination = destination as? levelDeclareTableViewController {
+                switch identifier {
+                case "AfterSignIn": break
+                default: break
+                }
+            }
+        }
+    }
 }

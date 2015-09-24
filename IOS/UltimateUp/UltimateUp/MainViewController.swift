@@ -10,53 +10,54 @@ import UIKit
 import CoreLocation
 import GoogleMaps
 
-class MainViewController: UIViewController, CLLocationManagerDelegate, UISplitViewControllerDelegate
+class MainViewController: UIViewController, CLLocationManagerDelegate, UISplitViewControllerDelegate,
+    GMSMapViewDelegate
 {
-    private var isLogin: Bool? {
-        didSet {
-            checkLogin()
-        }
-    }
-    var haveDisc: Bool? {
+    var isLogin: Bool = false {
         didSet {
             view.setNeedsDisplay()
         }
     }
-    private var isPublic: Bool? {
+    
+    var haveDisc: Bool = false {
+        didSet {
+            view.setNeedsDisplay()
+            discSwitch?.setOn(haveDisc, animated: true)
+        }
+    }
+    private var isPublic: Bool = false {
+        didSet {
+            checkPublicState()
+        }
+    }
+    private var estimateTime: NSDateComponents? {
         didSet {
             
         }
     }
-    
-//    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
-//        self.isLogin = false
-//        self.haveDisc = true
-//        self.isPublic = false
-//        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-//    }
-//    
-//    required init?(coder aDecoder: NSCoder) {
-//        self.isLogin = false
-//        self.haveDisc = true
-//        self.isPublic = false
-//        super.init(coder: aDecoder)
-//    }
-    
 
-    @IBOutlet weak var discButtonView: UIBarButtonItem!
+    @IBOutlet weak var discSwitch: UISwitch!
     @IBOutlet weak var createGameButtonView: UIButton!
     
+    @IBOutlet weak var rightBarItem: UIBarButtonItem!
     
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         // Allow the master view as the first view
         splitViewController?.delegate = self
+        handleLocationManager()
+        handleGoogleMapAPI()
+        handleGooglePlaceAPI()
         
-        handleGoogleMap()
+        estimateTime?.minute = 5
+        checkLoginState()
+        afterSignInGoogleMap()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         handleNotification()
-        
-        checkLogin()
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -65,39 +66,40 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, UISplitVi
     }
     
     @IBAction func createGame(sender: UIButton) {
-        if !(isLogin!) {
+        if !(isLogin) {
             // Onboarding
             performSegueWithIdentifier("beforeSignIn", sender: self)
         }
         else {
             // Normal start
-            GoogleMap.animateToZoom(16)
+            googleMap.animateToZoom(16)
+            isPublic = true
         }
     }
     
-    func checkLogin() {
-        if isLogin == nil {
-            print("When the view start, the login is nil", terminator: "\n")
-            self.isLogin = false
-        }
-        print("\(isLogin) in Main view")
+    func checkLoginState() {
         // Onboarding
-        if  !(isLogin!) {
+        if  !(isLogin) {
             self.title = "UltimateUp"
+            nameLabel.hidden = true
+            addressLabel.hidden = true
             createGameButtonView.setTitle("Create Game", forState: UIControlState.Normal)
             self.navigationItem.rightBarButtonItem = nil
-        }
-            // Normal start
-        else {
+            
+        }  else {
             self.title = "Do you have discs?"
+            nameLabel.hidden = false
+            addressLabel.hidden = false
             createGameButtonView.setTitle("Go Public", forState: UIControlState.Normal)
-            self.navigationItem.rightBarButtonItem = self.discButtonView
-            afterSignInGoogleMap()
+            self.navigationItem.rightBarButtonItem = self.rightBarItem
         }
     }
-    
-    @IBAction func discButton(sender: UIBarButtonItem) {
-        
+
+    private func checkPublicState() {
+        if isPublic {
+            self.title = "UltimateUp"
+            createGameButtonView.setTitle("Estimate time \(estimateTime)", forState: UIControlState.Normal)
+        }
     }
     
     // MARK: Google Map
@@ -106,50 +108,75 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, UISplitVi
     private var latitude: CLLocationDegrees = 47.6550
     private var longitude:CLLocationDegrees = 122.3080
     
-    @IBOutlet var GoogleMap: GMSMapView!
-
-    func handleGoogleMap() {
+    @IBOutlet weak var googleMap: GMSMapView!
+    private var placesClient: GMSPlacesClient?
+    
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
+    
+    private func handleLocationManager() {
         locationManager.delegate = self
         locationManager.desiredAccuracy = self.desiredAccuracy
         
         if CLLocationManager.authorizationStatus() == .NotDetermined {
             locationManager.requestWhenInUseAuthorization()
         }
+    }
+
+    private func handleGoogleMapAPI() {
+        // Bring the button to the front of GMSVectorView
+        googleMap.bringSubviewToFront(createGameButtonView)
+        googleMap.bringSubviewToFront(nameLabel)
+        googleMap.bringSubviewToFront(addressLabel)
+        let camera = GMSCameraPosition.cameraWithLatitude(47.655, longitude: -122.308, zoom: 14)
+        googleMap.camera = camera
+        googleMap.myLocationEnabled = true
+        googleMap.settings.compassButton = true
+        googleMap.settings.myLocationButton = true
+        googleMap.delegate = self
+    }
+    
+    private func handleGooglePlaceAPI() {
+        placesClient = GMSPlacesClient()
+        placesClient?.currentPlaceWithCallback { (placeLikelihoodList: GMSPlaceLikelihoodList?, error) in
+            if let error = error {
+                print("Pick Place error: \(error.localizedDescription)", terminator: "\n")
+                return
+            }
+            
+            self.nameLabel.text = "No current place"
+            self.addressLabel.text = ""
+            
+            if let placeLicklihoodList = placeLikelihoodList {
+                let place = placeLicklihoodList.likelihoods.first?.place
+                if let place = place {
+                    self.nameLabel.text = place.name
+                    self.addressLabel.text = place.formattedAddress.componentsSeparatedByString(", ").joinWithSeparator("\n")
+                }
+            }
+        }
         
-        let camera = GMSCameraPosition.cameraWithLatitude(47.655,
-            longitude: -122.308, zoom: 14)
-        let mapView = GMSMapView.mapWithFrame(CGRectZero, camera: camera)
-        mapView.myLocationEnabled = true
-        mapView.settings.compassButton = true
-        mapView.settings.myLocationButton = true
-        self.GoogleMap.camera = camera
-        self.GoogleMap = mapView
-        
-//        let placesClient = GMSPlacesClient()
-//        placesClient.currentPlaceWithCallback { (placeLikelihoods: GMSPlaceLikelihoodList?, error) in
-//            if error != nil {
-//                print("can not get current places", terminator: "\n")
-//            }   else {
-//                if placeLikelihoods != nil {
-//                    for likelihood in placeLikelihoods!.likelihoods {
-//                        if let likelihood = likelihood as? GMSPlaceLikelihood {
-//                            let place = likelihood.place
-//                            print("Current Place name \(place.name) at likelihood \(likelihood.likelihood)")
-//                            print("Current Place address \(place.formattedAddress)")
-//                            print("Current Place attributions \(place.attributions)")
-//                            print("Current PlaceID \(place.placeID)")
-//                        }
-//                    }
-//                }
+        let centerPoint = googleMap.center
+        let centerCoordinate = googleMap.projection.coordinateForPoint(centerPoint)
+//        let northEast = CLLocationCoordinate2DMake(centerCoordinate.latitude + 0.001, centerCoordinate.longitude + 0.001)
+//        let southWest = CLLocationCoordinate2DMake(centerCoordinate.latitude - 0.001, centerCoordinate.longitude - 0.001)
+//        let viewport = GMSCoordinateBounds( coordinate: northEast, coordinate: southWest)
+//        let config = GMSPlacePickerConfig(viewport: viewport)
+//        let placePicker = GMSPlacePicker(config: config)
+//        
+//        placePicker?.pickPlaceWithCallback{ (place: GMSPlace?, error) in
+//            if let error = error {
+//                print("Pick Place error: \(error.localizedDescription)", terminator: "\n")
+//                return
+//            }
+//            if let place = place {
+//                print("Place name \(place.name)")
+//                print("Place address \(place.formattedAddress)")
+//                print("Place attributions \(place.attributions)")
+//            } else {
+//                print("No place selected")
 //            }
 //        }
-        
-        
-//        let marker = GMSMarker()
-//        marker.position = CLLocationCoordinate2DMake(47.655, -122.308)
-//        marker.title = "Sydney"
-//        marker.snippet = "Australia"
-//        marker.map = mapView
     }
     
     func locationManager(manager: CLLocationManager,
@@ -186,17 +213,13 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, UISplitVi
     }
     
     func afterSignInGoogleMap() {
-        
+       
     }
-    
-    ////    These two methods get current position
-    //    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [AnyObject]) {
-    //        let currentLocations: [CLLocation]? = locations as? [CLLocation]
-    //        if let current = currentLocations as [CLLocation]! {
-    //            latitude = current[0].coordinate.latitude
-    ////            longitude = current[1].coordinate.longitude
-    //        }
-    //    }
+
+    @IBAction func discSwitchAction(sender: UISwitch) {
+        haveDisc = sender.on
+//        print("haveDisc \(haveDisc)")
+    }
     
     // MARK: Sign in notification
     let center = NSNotificationCenter.defaultCenter()
@@ -206,8 +229,9 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, UISplitVi
         center.addObserverForName(Constants.Notification.Name, object: nil, queue: queue)
             { notification in
             print("Recieve notification from sign in view controller", terminator: "\n")
-            if let isLogin = notification.userInfo?[Constants.Notification.Key] as? Bool {
-                self.isLogin = isLogin
+            if let isLoginNote = notification.userInfo?[Constants.Notification.Key] as? Bool {
+                print("\(isLoginNote). Temperarially disabled the notatification")
+//                self.isLogin = isLoginNote
             }
         }
     }
